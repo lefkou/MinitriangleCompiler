@@ -6,7 +6,9 @@ namespace Lab1
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            MyReader myreader = new MyReader();
+            myreader.ReadFile("../../../testFile.txt");
+            //Console.WriteLine("Hello World!");
         }
     }
 }
