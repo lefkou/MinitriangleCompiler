@@ -8,7 +8,10 @@ namespace Lab1
         {
             MyReader myreader = new MyReader();
             myreader.ReadFile("../../../testFile.txt");
-            //Console.WriteLine("Hello World!");
-        }
+            //MyOutputReader m = new MyOutputReader();
+            //m.ReadFile("../../../testFile.txt");
+
+		}
     }
+
 }

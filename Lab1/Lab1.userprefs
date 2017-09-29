@@ -1,11 +1,6 @@
 ﻿<Properties StartupConfiguration="{DF448CD9-387A-4845-BAE0-F2CEB7E23AA3}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Lab1/Program.cs">
-    <Files>
-      <File FileName="Lab1/Program.cs" Line="9" Column="47" />
-      <File FileName="Lab1/MyReader.cs" Line="16" Column="16" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
