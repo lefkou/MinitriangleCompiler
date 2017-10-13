@@ -1,0 +1,34 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v1.1.1",
+    "signature": "d42613c3324ce0c206f97e0b9e57a9ab1ad0e779"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v1.1.1": {
+      "triangle.abstractmachine/1.0.0": {
+        "dependencies": {
+          "NuGet.Build.Packaging": "0.1.276"
+        },
+        "runtime": {
+          "Triangle.AbstractMachine.dll": {}
+        }
+      },
+      "nuget.build.packaging/0.1.276": {}
+    }
+  },
+  "libraries": {
+    "triangle.abstractmachine/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "nuget.build.packaging/0.1.276": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Qtw3sgCpZ/5CQvkDZBbxcdVY7Gq4NhN5OJ9jlMz5LxIRDIUtmUx3LVhU7kY1nLzAgorXI9ujsuOtdtDd+HnzQw==",
+      "path": "nuget.build.packaging/0.1.276",
+      "hashPath": "nuget.build.packaging.0.1.276.nupkg.sha512"
+    }
+  }
+}
