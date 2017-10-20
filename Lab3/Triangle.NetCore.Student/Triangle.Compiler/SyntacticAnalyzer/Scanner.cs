@@ -77,10 +77,10 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                     _source.SkipRestOfLine();
                     _source.MoveNext();
                     break;
-                case ' ':
-                case '\n':
-                case '\r':
-                case '\t':
+                case ' ':  
+                case '\n': 
+                case '\r': 
+                case '\t': 
                     _source.MoveNext();
                     break;
             }
@@ -89,12 +89,54 @@ namespace Triangle.Compiler.SyntacticAnalyzer
 		//Build up tokens.
 		TokenKind ScanToken()
         {
+            TokenKind value;
+
+            // create a map that holds character - tokenKind mappings
+            var map = new Dictionary<int, TokenKind>();
+            var resWordsMap = new Dictionary<string, TokenKind>();
+            // for end of text
+            map[-1]  = TokenKind.EndOfText;
+
+            // for brackets
+            map['['] = TokenKind.LeftBracket;
+            map[']'] = TokenKind.RightBracket;
+            map['{'] = TokenKind.LeftCurly;
+            map['}'] = TokenKind.RightCurly;
+            map['('] = TokenKind.LeftParen;
+            map[')'] = TokenKind.RightParen;
+            // for punctuation
+            map['.'] = TokenKind.Dot;
+            map[':'] = TokenKind.Colon;
+            map[';'] = TokenKind.Semicolon;
+            map[','] = TokenKind.Comma;
+            // // for reserved words
+            // resWordsMap["array"] = TokenKind.Array;
+            // resWordsMap["begin"] = TokenKind.Begin;
+            // resWordsMap["const"] = TokenKind.Const;
+            // resWordsMap["do"]    = TokenKind.Do;
+            // resWordsMap["else"]  = TokenKind.Else;
+            // resWordsMap["end"]   = TokenKind.End;
+            // resWordsMap["func"]  = TokenKind.Func;
+            // resWordsMap["if"]    = TokenKind.If;
+            // resWordsMap["in"]    = TokenKind.In;
+            // resWordsMap["let"]   = TokenKind.Let;
+            // resWordsMap["of"]    = TokenKind.Of;
+            // resWordsMap["proc"]  = TokenKind.Proc;
+            // resWordsMap["record"]= TokenKind.Record;
+            // resWordsMap["then"]  = TokenKind.Then;
+            // resWordsMap["type"]  = TokenKind.Type;
+            // resWordsMap["var"]   = TokenKind.Var;
+            // resWordsMap["while"] = TokenKind.While;
+
             // number
-            if (IsDigit(_source.Current)) {
+            if(IsDigit(_source.Current)) {
                 TakeIt();
+                while (IsDigit(_source.Current)) {
+                    TakeIt();
+                }
                 return TokenKind.IntLiteral;
             }
-
+            
             // operator
             if(IsOperator(_source.Current)) {
                 TakeIt();
@@ -103,31 +145,31 @@ namespace Triangle.Compiler.SyntacticAnalyzer
 
             // letter
             if(IsLetter(_source.Current)) {
+                // string tempString = "";
+                // while(IsLetter(_source.Current)) {
+                //     tempString = tempString + _source.Current;
+                // }
+                // if (resWordsMap.TryGetValue(tempString, out value)) {
+                //     TakeIt();
+                // }
+                // if(tempString == 'in') {
+                //         Console.WriteLine("TempString" + tempString);
+                // }
                 TakeIt();
                 return TokenKind.CharLiteral;
             }
 
-            // end_of_text
-            if(_source.Current == -1) {
-                return TokenKind.EndOfText;
+            // return value from map 
+            if (map.TryGetValue(_source.Current, out value)) {
+                if (_source.Current != -1) {
+                    TakeIt();
+                }
+                return value;
             }
 
-            // brackets
-            // if(IsBracket(_source.Current)) {
-            //     return TokenKind.Identifier;
-            // }
-
-            // identifiers
-            // if(IsIdentifier(_source.Current)) {
-
-            // }
-
-            // punctuation
-            
-            // other
             TakeIt();
             return TokenKind.Error;
-
+            
         }
 
         bool IsLetter(int ch)
@@ -158,11 +200,11 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                 case '^':
                 case '?':
                     return true;
-
                 default:
                     return false;
             }
         }
+
 
         bool IsBracket(int ch) 
         {

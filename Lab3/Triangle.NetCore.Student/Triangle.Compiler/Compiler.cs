@@ -13,12 +13,13 @@ namespace Triangle.Compiler
 
 		// The scanner.	
 		Scanner _scanner;
-
+        Parser _parser;
         // Creates a compiler for the given source file.
         Compiler(string sourceFileName)
         {
             _source = new SourceFile(sourceFileName);
             _scanner = new Scanner(_source);
+            _parser = new Parser(_scanner);
         }
 
 
@@ -30,10 +31,11 @@ namespace Triangle.Compiler
             if (sourceFileName != null)
             {
                 var compiler = new Compiler(sourceFileName);
-				foreach (var token in compiler._scanner)
-				{
-                    Console.WriteLine(token);
-				}
+				// foreach (var token in compiler._scanner)
+				// {
+                //     Console.WriteLine(token);
+				// }
+                compiler._parser.ParseProgram();
 
             }
         }

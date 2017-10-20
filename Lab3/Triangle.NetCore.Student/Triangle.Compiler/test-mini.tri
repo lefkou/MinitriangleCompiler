@@ -1,0 +1,11 @@
+let
+  const MAX ~ 10;
+  var n: Integer
+in
+begin
+  if (n>0) /\ (n<=MAX) then
+    while n > 0 do begin
+      n := n-1
+    end
+    else
+end

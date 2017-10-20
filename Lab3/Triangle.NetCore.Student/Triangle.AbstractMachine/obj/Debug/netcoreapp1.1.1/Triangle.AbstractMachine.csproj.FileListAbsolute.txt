@@ -18,7 +18,6 @@
 /src/app/Triangle.NetCore.Student/Triangle.AbstractMachine/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.deps.json
 /src/app/Triangle.NetCore.Student/Triangle.AbstractMachine/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.dll
 /src/app/Triangle.NetCore.Student/Triangle.AbstractMachine/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.pdb
-/src/app/Triangle.NetCore.Student/Triangle.AbstractMachine/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.csprojResolveAssemblyReference.cache
 /src/app/Triangle.NetCore.Student/Triangle.AbstractMachine/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.csproj.CoreCompileInputs.cache
 /src/app/Triangle.NetCore.Student/Triangle.AbstractMachine/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.AssemblyInfo.cs
 /src/app/Triangle.NetCore.Student/Triangle.AbstractMachine/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.dll
