@@ -13,6 +13,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
         int _index;
 
         int _lineNumber;
+        
 
         public SourceFile(string sourceFileName)
         {
@@ -97,5 +98,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                 }
             }
         }
+
+        public Location Location { get { return new Location(_index, _lineNumber);} }
     }
 }

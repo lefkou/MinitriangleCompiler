@@ -1,6 +1,6 @@
 let
   const MAX ~ 10;
-  var n: Integer
+  var n: Integer zxc
 in
 begin
   put('n');put('u');put('m');put('b');put('e');put('r');put('?');

@@ -2,14 +2,21 @@
 namespace Triangle.Compiler.SyntacticAnalyzer {
 
     public class SourcePosition {
-        
-        int startPosX;
-        int startPosY;
-        int endPosX;
-        int endPosY;
 
-        // public Location(int startPosX, int endPosX) {
+        public Location start, finish;
 
-        // }
+        public SourcePosition () {
+            start = null;
+            finish = null;
+        }
+
+        public SourcePosition (Location s, Location f) {
+            start = s;
+            finish = f;
+        }
+
+        public override string ToString() {
+            return start + ", " + finish;
+        }
     }
 }

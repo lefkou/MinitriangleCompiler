@@ -18,8 +18,10 @@ namespace Triangle.Compiler.SyntacticAnalyzer
         //The spelling of a source token.
         public string Spelling { get; private set; }
 
+        public SourcePosition _position;
+
         // Creates a token
-        public Token(TokenKind kind, string spelling)
+        public Token(TokenKind kind, string spelling, SourcePosition position)
         {
 
             Kind = kind;
@@ -31,13 +33,17 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                     Kind = match;
                 }
             }
-
+            _position = position;
             Spelling = spelling;
         }
 
         public override string ToString()
         {
-            return string.Format("Kind={0}, spelling=\"{1}\"", Kind, Spelling);
+            string output = string.Format("Kind={0}, spelling=\"{1}\"", Kind, Spelling);
+            // if (Kind == TokenKind.Error){
+                output += string.Format(", Position = {0}", _position);
+            // }
+            return output;
         }
     }
 }

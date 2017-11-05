@@ -31,11 +31,11 @@ namespace Triangle.Compiler
             if (sourceFileName != null)
             {
                 var compiler = new Compiler(sourceFileName);
-				// foreach (var token in compiler._scanner)
-				// {
-                //     Console.WriteLine(token);
-				// }
-                compiler._parser.ParseProgram();
+				foreach (var token in compiler._scanner)
+				{
+                    Console.WriteLine(token);
+				}
+                // compiler._parser.ParseProgram();
 
             }
         }

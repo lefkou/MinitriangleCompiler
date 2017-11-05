@@ -36,12 +36,12 @@ namespace Triangle.Compiler.SyntacticAnalyzer
 
                 _currentSpelling.Clear();
 
-                //var startLocation = _source.Location;
+                var startLocation = _source.Location;
                 var kind = ScanToken();
-                //var endLocation = _source.Location;
-                //var position = new SourcePosition(startLocation, endLocation);
+                var endLocation = _source.Location;
+                var position = new SourcePosition(startLocation, endLocation);
 
-                var token = new Token(kind, _currentSpelling.ToString());
+                var token = new Token(kind, _currentSpelling.ToString(), position);
                 if (_debug)
                 {
                     Console.WriteLine(token);
@@ -89,89 +89,102 @@ namespace Triangle.Compiler.SyntacticAnalyzer
 		//Build up tokens.
 		TokenKind ScanToken()
         {
-            TokenKind value;
-
-            // create a map that holds character - tokenKind mappings
-            var map = new Dictionary<int, TokenKind>();
-            var resWordsMap = new Dictionary<string, TokenKind>();
-            // for end of text
-            map[-1]  = TokenKind.EndOfText;
-
-            // for brackets
-            map['['] = TokenKind.LeftBracket;
-            map[']'] = TokenKind.RightBracket;
-            map['{'] = TokenKind.LeftCurly;
-            map['}'] = TokenKind.RightCurly;
-            map['('] = TokenKind.LeftParen;
-            map[')'] = TokenKind.RightParen;
-            // for punctuation
-            map['.'] = TokenKind.Dot;
-            map[':'] = TokenKind.Colon;
-            map[';'] = TokenKind.Semicolon;
-            map[','] = TokenKind.Comma;
-            // // for reserved words
-            // resWordsMap["array"] = TokenKind.Array;
-            // resWordsMap["begin"] = TokenKind.Begin;
-            // resWordsMap["const"] = TokenKind.Const;
-            // resWordsMap["do"]    = TokenKind.Do;
-            // resWordsMap["else"]  = TokenKind.Else;
-            // resWordsMap["end"]   = TokenKind.End;
-            // resWordsMap["func"]  = TokenKind.Func;
-            // resWordsMap["if"]    = TokenKind.If;
-            // resWordsMap["in"]    = TokenKind.In;
-            // resWordsMap["let"]   = TokenKind.Let;
-            // resWordsMap["of"]    = TokenKind.Of;
-            // resWordsMap["proc"]  = TokenKind.Proc;
-            // resWordsMap["record"]= TokenKind.Record;
-            // resWordsMap["then"]  = TokenKind.Then;
-            // resWordsMap["type"]  = TokenKind.Type;
-            // resWordsMap["var"]   = TokenKind.Var;
-            // resWordsMap["while"] = TokenKind.While;
-
-            // number
+            // Identifier
+            if(IsLetter(_source.Current)) {
+                TakeIt();
+                while (IsLetter(_source.Current) || IsDigit(_source.Current)) 
+                { 
+                    TakeIt();
+                } 
+                return TokenKind.Identifier;
+            }
+            
+            // Operator
+            if(IsOperator(_source.Current)){
+                TakeIt();
+                while (IsOperator(_source.Current))
+                    TakeIt();
+                return TokenKind.Operator;
+            }
+                
+            // Int literal
             if(IsDigit(_source.Current)) {
                 TakeIt();
-                while (IsDigit(_source.Current)) {
+                while (IsDigit(_source.Current)) 
+                { 
                     TakeIt();
                 }
                 return TokenKind.IntLiteral;
             }
-            
-            // operator
-            if(IsOperator(_source.Current)) {
-                TakeIt();
-                return TokenKind.Operator;
-            }
 
-            // letter
-            if(IsLetter(_source.Current)) {
-                // string tempString = "";
-                // while(IsLetter(_source.Current)) {
-                //     tempString = tempString + _source.Current;
-                // }
-                // if (resWordsMap.TryGetValue(tempString, out value)) {
-                //     TakeIt();
-                // }
-                // if(tempString == 'in') {
-                //         Console.WriteLine("TempString" + tempString);
-                // }
-                TakeIt();
-                return TokenKind.CharLiteral;
-            }
-
-            // return value from map 
-            if (map.TryGetValue(_source.Current, out value)) {
-                if (_source.Current != -1) {
+            switch(_source.Current) 
+            {
+                // Char literal
+                case '\'':
                     TakeIt();
-                }
-                return value;
+                    TakeIt(); // the quoted character
+                    if (_source.Current == '\'') {
+                        TakeIt();
+                        return TokenKind.CharLiteral;
+                    } else {
+                        return TokenKind.Error;
+                    }
+
+                // Punctuation
+                case '[':
+                    TakeIt();
+                    return TokenKind.LeftBracket;
+                case ']':
+                    TakeIt();
+                    return TokenKind.RightBracket;
+                case '{':
+                    TakeIt();
+                    return TokenKind.LeftCurly;
+                case '}':
+                    TakeIt();
+                    return TokenKind.RightCurly;
+                case '(':
+                    TakeIt();
+                    return TokenKind.LeftParen;
+                case ')':
+                    TakeIt();
+                    return TokenKind.RightParen;
+                case '.':
+                    TakeIt();
+                    return TokenKind.Dot;
+
+                // Becomes
+                case ':':
+                    TakeIt();
+                    if (_source.Current == '=') {
+                        TakeIt();
+                        return TokenKind.Becomes;
+                    } else {
+                        return TokenKind.Colon;
+                    }
+
+                // Is
+                case '~':
+                    TakeIt();
+                    return TokenKind.Is;
+                case ';':
+                    TakeIt();
+                    return TokenKind.Semicolon;
+                case ',':
+                    TakeIt(); 
+                    return TokenKind.Comma;
+
+                // End of text
+                case -1 :
+                    return TokenKind.EndOfText;
+                // Error
+                default:
+                    TakeIt();
+                    return TokenKind.Error;
+                    
             }
-
-            TakeIt();
-            return TokenKind.Error;
-            
         }
-
+   
         bool IsLetter(int ch)
         {
             return ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z');
@@ -184,44 +197,11 @@ namespace Triangle.Compiler.SyntacticAnalyzer
 
         bool IsOperator(int ch)
         {
-            switch (ch)
-            {
-                case '+':
-                case '-':
-                case '*':
-                case '/':
-                case '=':
-                case '<':
-                case '>':
-                case '\\':
-                case '&':
-                case '@':
-                case '%':
-                case '^':
-                case '?':
-                    return true;
-                default:
-                    return false;
-            }
+            return (ch == '+' || ch == '-' || ch == '*' || ch == '/'  ||
+                    ch == '=' || ch == '<' || ch == '>' || ch == '\\' ||
+                    ch == '&' || ch == '@' || ch == '%' || ch == '^'  ||
+                    ch == '?');
         }
 
-
-        bool IsBracket(int ch) 
-        {
-            switch(ch)
-            {
-                case '[':
-                case ']':
-                case '{':
-                case '}':
-                case '(':
-                case ')':
-                    return true;
-                default:
-                    return false;
-
-            }
-
-        }
     }
 }
