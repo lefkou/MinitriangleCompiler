@@ -1,3 +1,14 @@
+/**
+ * @Author: Eleftherios Kousis <lef>
+ * @Date:   5-Nov-2017
+ * @Filename: Token.cs
+ * @Last modified by:   lef
+ * @Last modified time: 5-Nov-2017
+ */
+
+
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +22,6 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                 Enumerable.Range((int)TokenKind.Array, (int)TokenKind.While).Cast<TokenKind>()
                     .ToDictionary(kind => kind.ToString().ToLower(), kind => kind);
 
-   
         //The kind of a source token.
         public TokenKind Kind { get; private set; }
 
@@ -32,6 +42,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                 {
                     Kind = match;
                 }
+                
             }
             _position = position;
             Spelling = spelling;
@@ -40,9 +51,9 @@ namespace Triangle.Compiler.SyntacticAnalyzer
         public override string ToString()
         {
             string output = string.Format("Kind={0}, spelling=\"{1}\"", Kind, Spelling);
-            // if (Kind == TokenKind.Error){
+            if (Kind == TokenKind.Error){
                 output += string.Format(", Position = {0}", _position);
-            // }
+            }
             return output;
         }
     }

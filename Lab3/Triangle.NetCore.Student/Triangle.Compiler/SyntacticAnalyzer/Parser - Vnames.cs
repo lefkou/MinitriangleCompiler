@@ -20,11 +20,11 @@ namespace Triangle.Compiler.SyntacticAnalyzer
         // /////////////////////////////////////////////////////////////////////////////
 
 
+        // Parse a variable name and print output
         void ParseVname()
         {
-          System.Console.WriteLine("parsing variable name");
+            System.Console.WriteLine("parsing variable name");
             ParseIdentifier();
-
         }
 
     }

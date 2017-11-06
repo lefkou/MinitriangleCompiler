@@ -1,3 +1,12 @@
+/**
+ * @Author: Eleftherios Kousis <lef>
+ * @Date:   5-Nov-2017
+ * @Filename: SourcePosition.cs
+ * @Last modified by:   lef
+ * @Last modified time: 5-Nov-2017
+ */
+
+
 
 namespace Triangle.Compiler.SyntacticAnalyzer {
 
@@ -16,7 +25,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer {
         }
 
         public override string ToString() {
-            return start + ", " + finish;
+            return start + " : " + finish;
         }
     }
 }

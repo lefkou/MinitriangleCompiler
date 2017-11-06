@@ -1,0 +1,1 @@
+getint(var i);putint(i);puteol('d')

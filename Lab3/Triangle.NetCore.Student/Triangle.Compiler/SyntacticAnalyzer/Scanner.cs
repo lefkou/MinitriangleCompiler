@@ -1,3 +1,12 @@
+/**
+ * @Author: Eleftherios Kousis <lef>
+ * @Date:   5-Nov-2017
+ * @Filename: Scanner.cs
+ * @Last modified by:   lef
+ * @Last modified time: 5-Nov-2017
+ */
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +17,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
     public class Scanner : IEnumerable<Token>
     {
         SourceFile _source;
-
         StringBuilder _currentSpelling;
-
         bool _debug;
 
         public Scanner(SourceFile source)
@@ -25,6 +32,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
             _debug = true;
             return this;
         }
+
         public IEnumerator<Token> GetEnumerator()
         {
             while (true)
@@ -59,7 +67,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
 
      
         // Appends the current character to the current token, and gets
-        //the next character from the source program.
+        // the next character from the source program.
 
         void TakeIt()
         {
@@ -89,15 +97,6 @@ namespace Triangle.Compiler.SyntacticAnalyzer
 		//Build up tokens.
 		TokenKind ScanToken()
         {
-            // Identifier
-            if(IsLetter(_source.Current)) {
-                TakeIt();
-                while (IsLetter(_source.Current) || IsDigit(_source.Current)) 
-                { 
-                    TakeIt();
-                } 
-                return TokenKind.Identifier;
-            }
             
             // Operator
             if(IsOperator(_source.Current)){
@@ -116,7 +115,16 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                 }
                 return TokenKind.IntLiteral;
             }
-
+            // Identifier
+            if(IsLetter(_source.Current)) {
+                TakeIt();
+                while (IsLetter(_source.Current) || IsDigit(_source.Current)) 
+                {
+                    TakeIt();
+                }
+                return TokenKind.Identifier;
+            }
+            
             switch(_source.Current) 
             {
                 // Char literal
@@ -181,7 +189,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                 default:
                     TakeIt();
                     return TokenKind.Error;
-                    
+
             }
         }
    
