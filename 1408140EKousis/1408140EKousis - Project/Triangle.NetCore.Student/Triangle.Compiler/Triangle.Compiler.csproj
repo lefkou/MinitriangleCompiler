@@ -1,0 +1,107 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Program.cs" />
+    <Compile Remove="Interpreter.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Aggregates.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Commands.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Common.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Declarations.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Expressions.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Parameters.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Programs.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Terminals.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - TypeDenoters.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Vnames.cs" />
+    <Compile Remove="ContextualAnalyzer\IdentificationTable.cs" />
+    <Compile Remove="SyntaxTrees\AbstractSyntaxTree.cs" />
+    <Compile Remove="SyntaxTrees\Program.cs" />
+    <Compile Remove="SyntaxTrees\Actuals\ActualParameter.cs" />
+    <Compile Remove="SyntaxTrees\Actuals\ActualParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Actuals\ConstActualParameter.cs" />
+    <Compile Remove="SyntaxTrees\Actuals\EmptyActualParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Actuals\FuncActualParameter.cs" />
+    <Compile Remove="SyntaxTrees\Actuals\MultipleActualParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Actuals\ProcActualParameter.cs" />
+    <Compile Remove="SyntaxTrees\Actuals\SingleActualParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Actuals\VarActualParameter.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\ArrayAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\MultipleArrayAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\MultipleRecordAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\RecordAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\SingleArrayAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\SingleRecordAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Commands\AssignCommand.cs" />
+    <Compile Remove="SyntaxTrees\Commands\CallCommand.cs" />
+    <Compile Remove="SyntaxTrees\Commands\Command.cs" />
+    <Compile Remove="SyntaxTrees\Commands\EmptyCommand.cs" />
+    <Compile Remove="SyntaxTrees\Commands\IfCommand.cs" />
+    <Compile Remove="SyntaxTrees\Commands\LetCommand.cs" />
+    <Compile Remove="SyntaxTrees\Commands\SequentialCommand.cs" />
+    <Compile Remove="SyntaxTrees\Commands\WhileCommand.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\BinaryOperatorDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\ConstDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\Declaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\FuncDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\IConstantDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\IDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\IFunctionDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\IProcedureDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\IVariableDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\ProcDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\SequentialDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\TypeDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\UnaryOperatorDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\VarDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\ArrayExpression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\BinaryExpression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\CallExpression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\CharacterExpression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\EmptyExpression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\Expression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\IfExpression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\IntegerExpression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\LetExpression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\RecordExpression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\UnaryExpression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\VnameExpression.cs" />
+    <Compile Remove="SyntaxTrees\Formals\ConstFormalParameter.cs" />
+    <Compile Remove="SyntaxTrees\Formals\EmptyFormalParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Formals\FormalParameter.cs" />
+    <Compile Remove="SyntaxTrees\Formals\FormalParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Formals\FuncFormalParameter.cs" />
+    <Compile Remove="SyntaxTrees\Formals\MultipleFormalParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Formals\ProcFormalParameter.cs" />
+    <Compile Remove="SyntaxTrees\Formals\SingleFormalParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Formals\VarFormalParameter.cs" />
+    <Compile Remove="SyntaxTrees\Terminals\CharacterLiteral.cs" />
+    <Compile Remove="SyntaxTrees\Terminals\Identifier.cs" />
+    <Compile Remove="SyntaxTrees\Terminals\IntegerLiteral.cs" />
+    <Compile Remove="SyntaxTrees\Terminals\Operator.cs" />
+    <Compile Remove="SyntaxTrees\Terminals\Terminal.cs" />
+    <Compile Remove="SyntaxTrees\Types\AnyTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\ArrayTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\BoolTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\CharTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\ErrorTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\FieldTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\IntTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\MultipleFieldTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\RecordTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\SimpleTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\SingleFieldTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\TypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IActualParameterSequenceVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IActualParameterVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IArrayAggregateVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\ICommandVisitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Triangle.AbstractMachine\Triangle.AbstractMachine.csproj" />
+  </ItemGroup>
+</Project>

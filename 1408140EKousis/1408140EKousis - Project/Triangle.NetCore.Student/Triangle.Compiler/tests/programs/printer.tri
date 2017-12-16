@@ -1,0 +1,3 @@
+while \eol() do
+  begin get(var ch); put(ch) end;
+geteol(); puteol()
