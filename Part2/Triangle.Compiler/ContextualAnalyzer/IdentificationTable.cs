@@ -11,7 +11,8 @@ namespace Triangle.Compiler.ContextualAnalyzer
 
         public IdentificationTable()
         {
-           
+            _levelStack = new List<Dictionary<string, Declaration>>();
+            _levelStack.Add(new Dictionary<string, Declaration>());
         }
 
         // Opens a new level in the identification table, 1 higher than the
@@ -19,7 +20,7 @@ namespace Triangle.Compiler.ContextualAnalyzer
 
         public void OpenScope()
         {
-          
+            _levelStack.Insert(0, new Dictionary<string, Declaration>());
         }
 
         // Closes the topmost level in the identification table, discarding
@@ -27,7 +28,7 @@ namespace Triangle.Compiler.ContextualAnalyzer
 
         public void CloseScope()
         {
-            
+            _levelStack.RemoveAt(0);
         }
 
         /**
@@ -41,11 +42,10 @@ namespace Triangle.Compiler.ContextualAnalyzer
          * @param attr
          *          the attribute
          */
-        public void Enter(Terminal terminal, Declaration attr)
-        {
-            
+        public void Enter(Terminal terminal, Declaration attr) {
+            attr.Duplicated = _levelStack[0].ContainsKey(terminal.Spelling);
+            _levelStack[0][terminal.Spelling] = attr; 
         }
-
         /**
          * Finds an entry for the given identifier in the identification table, if
          * any. If there are several entries for that identifier, finds the entry at
@@ -58,7 +58,14 @@ namespace Triangle.Compiler.ContextualAnalyzer
          */
         public Declaration Retrieve(string id)
         {
-            
+            foreach (var level in _levelStack)
+            {
+                Declaration attr = null;
+                if (level.TryGetValue(id, out attr))
+                {
+                    return attr;
+                }
+            }
             return null;
         }
 

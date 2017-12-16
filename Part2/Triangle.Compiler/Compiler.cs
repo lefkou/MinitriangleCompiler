@@ -32,6 +32,11 @@ namespace Triangle.Compiler
         /// </summary>
         Parser _parser;
 
+        /// <summary>
+        /// The contextual analyzer.
+        /// </summary>
+        Checker _checker;
+
 
 
         /// <summary>
@@ -46,8 +51,8 @@ namespace Triangle.Compiler
             _source = new SourceFile(sourceFileName);
             _scanner = new Scanner(_source); //.EnableDebugging();
             _parser = new Parser(_scanner, ErrorReporter);
-            //_checker = new Checker(ErrorReporter);
-            //_encoder = new Encoder(ErrorReporter);
+            _checker = new Checker(ErrorReporter);
+            // _encoder = new Encoder(ErrorReporter);
         }
 
         /// <summary>
@@ -80,6 +85,14 @@ namespace Triangle.Compiler
                 ErrorReporter.ReportMessage("Compilation was unsuccessful.");
                 return false;
             }
+            // 2nd pass
+            ErrorReporter.ReportMessage("Contextual Analysis ...");
+            _checker.Check(program);
+            if (ErrorReporter.HasErrors) {
+                ErrorReporter.ReportMessage("Compilation was unsuccessful.");
+                return false;
+            }
+            
             System.Console.WriteLine(program);
 
             ErrorReporter.ReportMessage("Compilation was successful.");
