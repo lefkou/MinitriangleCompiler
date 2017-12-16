@@ -1,0 +1,93 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Program.cs" />
+    <Compile Remove="Interpreter.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\ArrayAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\MultipleArrayAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\MultipleRecordAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\RecordAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\SingleArrayAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Aggregates\SingleRecordAggregate.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\IFunctionDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\IProcedureDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\ProcDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\ArrayExpression.cs" />
+    <Compile Remove="SyntaxTrees\Expressions\RecordExpression.cs" />
+    <Compile Remove="SyntaxTrees\Formals\ConstFormalParameter.cs" />
+    <Compile Remove="SyntaxTrees\Formals\EmptyFormalParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Formals\FormalParameter.cs" />
+    <Compile Remove="SyntaxTrees\Formals\FormalParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Formals\FuncFormalParameter.cs" />
+    <Compile Remove="SyntaxTrees\Formals\MultipleFormalParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Formals\ProcFormalParameter.cs" />
+    <Compile Remove="SyntaxTrees\Formals\SingleFormalParameterSequence.cs" />
+    <Compile Remove="SyntaxTrees\Formals\VarFormalParameter.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IActualParameterSequenceVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IActualParameterVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IArrayAggregateVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\ICommandVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IDeclarationVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IExpressionVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IFieldTypeDenoterVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IFormalParameterSequenceVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IFormalParameterVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IIdentifierVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\ILiteralVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IOperatorVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IProgramVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IRecordAggregateVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\ITypeDenoterVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\IVnameVisitor.cs" />
+    <Compile Remove="SyntaxTrees\Visitors\Void.cs" />
+    <Compile Remove="SyntaxTrees\Vnames\DotVname.cs" />
+    <Compile Remove="SyntaxTrees\Vnames\SubscriptVname.cs" />
+    <Compile Remove="SyntaxTrees\Types\RecordTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Declarations\FuncDeclaration.cs" />
+    <Compile Remove="SyntaxTrees\Types\ArrayTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Types\MultipleFieldTypeDenoter.cs" />
+    <Compile Remove="SyntaxTrees\Actuals\FuncActualParameter.cs" />
+    <Compile Remove="SyntaxTrees\Actuals\ProcActualParameter.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Aggregates.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Commands.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Common.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Declarations.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Expressions.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Parameters.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Programs.cs" />
+    <Compile Remove="ContextualAnalyzer\Checker - Terminals.cs" />
+    <Compile Remove="CodeGenerator\Emitter.cs" />
+    <Compile Remove="CodeGenerator\Encoder - Aggregates.cs" />
+    <Compile Remove="CodeGenerator\Encoder - Commands.cs" />
+    <Compile Remove="CodeGenerator\Encoder - Common.cs" />
+    <Compile Remove="CodeGenerator\Encoder - Declarations.cs" />
+    <Compile Remove="CodeGenerator\Encoder - Expressions.cs" />
+    <Compile Remove="CodeGenerator\Encoder - Parameters.cs" />
+    <Compile Remove="CodeGenerator\Encoder - Programs.cs" />
+    <Compile Remove="CodeGenerator\Encoder - Terminals.cs" />
+    <Compile Remove="CodeGenerator\Encoder - TypeDenoters.cs" />
+    <Compile Remove="CodeGenerator\Encoder - Vnames.cs" />
+    <Compile Remove="CodeGenerator\Frame.cs" />
+    <Compile Remove="CodeGenerator\Entities\AddressableEntity.cs" />
+    <Compile Remove="CodeGenerator\Entities\EqualityRoutine.cs" />
+    <Compile Remove="CodeGenerator\Entities\Field.cs" />
+    <Compile Remove="CodeGenerator\Entities\IFetchableEntity.cs" />
+    <Compile Remove="CodeGenerator\Entities\IRoutineEntity.cs" />
+    <Compile Remove="CodeGenerator\Entities\KnownAddress.cs" />
+    <Compile Remove="CodeGenerator\Entities\KnownRoutine.cs" />
+    <Compile Remove="CodeGenerator\Entities\KnownValue.cs" />
+    <Compile Remove="CodeGenerator\Entities\ObjectAddress.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Triangle.AbstractMachine\Triangle.AbstractMachine.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="tests\programs\gcd.tri" />
+    <None Remove="tests\programs\proc.tri" />
+  </ItemGroup>
+</Project>

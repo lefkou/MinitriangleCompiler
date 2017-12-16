@@ -1,0 +1,4 @@
+let func gcd (x: Integer, y: Integer) : Integer ~
+  if x // y = 0 then y else god(y, x // y);
+in
+  putint(gcd(321, 81))
