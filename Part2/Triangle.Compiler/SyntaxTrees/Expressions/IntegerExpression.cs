@@ -1,5 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Terminals;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Expressions
 {
@@ -10,14 +10,12 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
         public IntegerExpression(IntegerLiteral integerLiteral, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _integerLiteral = integerLiteral;
         }
 
         public IntegerExpression(IntegerLiteral integerLiteral)
             : this(integerLiteral, SourcePosition.Empty)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
         }
 
         public IntegerLiteral IntegerLiteral { get { return _integerLiteral; } }
@@ -32,6 +30,9 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
             get { return _integerLiteral.Value; }
         }
         
-
+        public override TResult Visit<TArg, TResult>(IExpressionVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitIntegerExpression(this, arg);
+        }
     }
 }

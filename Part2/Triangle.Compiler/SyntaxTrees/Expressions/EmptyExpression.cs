@@ -1,4 +1,4 @@
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Expressions
 {
@@ -6,9 +6,11 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
     {
         public EmptyExpression() : base(SourcePosition.Empty)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
         }
 
-
+        public override TResult Visit<TArg, TResult>(IExpressionVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitEmptyExpression(this, arg);
+        }
     }
 }

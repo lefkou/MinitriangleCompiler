@@ -1,5 +1,5 @@
 using Triangle.AbstractMachine;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Types
 {
@@ -7,10 +7,14 @@ namespace Triangle.Compiler.SyntaxTrees.Types
     {
         public BoolTypeDenoter() : base(SourcePosition.Empty)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
         }
 
+        public override int Size { get { return Machine.BooleanSize; } }
 
 
+        public override TResult Visit<TArg, TResult>(ITypeDenoterVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitBoolTypeDenoter(this, arg);
+        }
     }
 }

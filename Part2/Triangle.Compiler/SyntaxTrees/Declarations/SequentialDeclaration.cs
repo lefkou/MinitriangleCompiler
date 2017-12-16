@@ -1,4 +1,4 @@
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Declarations
 {
@@ -12,7 +12,6 @@ namespace Triangle.Compiler.SyntaxTrees.Declarations
                 SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _firstDeclaration = firstDeclaration;
             _secondDeclaration = secondDeclaration;
         }
@@ -21,6 +20,9 @@ namespace Triangle.Compiler.SyntaxTrees.Declarations
 
         public Declaration SecondDeclaration { get { return _secondDeclaration; } }
 
-
+        public override TResult Visit<TArg, TResult>(IDeclarationVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitSequentialDeclaration(this, arg);
+        }
     }
 }

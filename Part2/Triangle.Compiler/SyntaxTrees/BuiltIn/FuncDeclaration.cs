@@ -6,6 +6,8 @@ using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Declarations
 {
+
+    //this file is required to deal with the internal functions within the language
     public class FuncDeclaration : Declaration, IFunctionDeclaration
     {
         readonly Identifier _identifier;

@@ -1,5 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Expressions;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Commands
 {
@@ -12,7 +12,6 @@ namespace Triangle.Compiler.SyntaxTrees.Commands
         public WhileCommand(Expression expression, Command command, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _command = command;
             _expression = expression;
         }
@@ -21,6 +20,9 @@ namespace Triangle.Compiler.SyntaxTrees.Commands
 
         public Command Command { get { return _command; } }
 
-
+        public override TResult Visit<TArg, TResult>(ICommandVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitWhileCommand(this, arg);
+        }
     }
 }

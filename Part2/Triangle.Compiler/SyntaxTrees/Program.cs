@@ -1,5 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Commands;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees
 {
@@ -10,12 +10,14 @@ namespace Triangle.Compiler.SyntaxTrees
         public Program(Command command, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _command = command;
         }
 
         public Command Command { get { return _command; } }
         
-
+        public TResult Visit<TArg, TResult>(IProgramVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitProgram(this, arg);
+        }
     }
 }

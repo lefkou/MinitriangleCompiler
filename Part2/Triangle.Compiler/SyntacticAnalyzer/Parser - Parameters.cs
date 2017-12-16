@@ -27,16 +27,16 @@ namespace Triangle.Compiler.SyntacticAnalyzer
          *           a syntactic error
          * 
          */
-        void  ParseActualParameterSequence()
+        ActualParameterSequence ParseActualParameterSequence()
         {
 
             var startLocation = _currentToken.Position.Start;
             if (_currentToken.Kind == TokenKind.RightParen)
             {
                 var actualsPosition = new SourcePosition(startLocation, _currentToken.Position.Finish);
-
+                return new EmptyActualParameterSequence(actualsPosition);
             }
-          
+            return null;
         }
 
         /**
@@ -50,23 +50,24 @@ namespace Triangle.Compiler.SyntacticAnalyzer
          *           a syntactic error
          * 
          */
-        void ParseProperActualParameterSequence()
+        ActualParameterSequence ParseProperActualParameterSequence()
         {
 
             var startLocation = _currentToken.Position.Start;
-            ParseActualParameter();
+            var actualParameter = ParseActualParameter();
             if (_currentToken.Kind == TokenKind.Comma)
             {
                 AcceptIt();
-                ParseProperActualParameterSequence();
+                ActualParameterSequence sequence = ParseProperActualParameterSequence();
                 var actualsPosition = new SourcePosition(startLocation, _currentToken.Position.Finish);
-
+                return new MultipleActualParameterSequence(actualParameter, sequence, actualsPosition);
             }
             else
             {
                 var actualsPosition = new SourcePosition(startLocation, _currentToken.Position.Finish);
-
+                return new SingleActualParameterSequence(actualParameter, actualsPosition);
             }
+            
            
         }
 
@@ -80,7 +81,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
          *           a syntactic error
          * 
          */
-        void ParseActualParameter()
+        ActualParameter ParseActualParameter()
         {
 
             var startLocation = _currentToken.Position.Start;
@@ -97,23 +98,23 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                 case TokenKind.LeftBracket:
                 case TokenKind.LeftCurly:
                     {
-                        ParseExpression();
+                        var expression = ParseExpression();
                         var actualPosition = new SourcePosition(startLocation, _currentToken.Position.Finish);
-                        break;
+                        return new ConstActualParameter(expression, actualPosition);
                     }
 
                 case TokenKind.Var:
                     {
                         AcceptIt();
-                        ParseVname();
+                        var vName = ParseVname();
                         var actualPosition = new SourcePosition(startLocation, _currentToken.Position.Finish);
-                        break;
+                        return new VarActualParameter(vName, actualPosition);
                     }
 
                 default:
                     {
                         RaiseSyntacticError("\"%\" cannot start an actual parameter", _currentToken);
-                        break;
+                        return null;
                     }
 
             }

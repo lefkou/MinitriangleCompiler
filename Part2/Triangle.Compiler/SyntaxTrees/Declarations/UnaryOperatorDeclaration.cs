@@ -1,6 +1,6 @@
 using Triangle.Compiler.SyntaxTrees.Terminals;
 using Triangle.Compiler.SyntaxTrees.Types;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Declarations
 {
@@ -16,7 +16,6 @@ namespace Triangle.Compiler.SyntaxTrees.Declarations
                 TypeDenoter result)
             : base(SourcePosition.Empty)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _operator = op;
             _argument = argument;
             _result = result;
@@ -28,6 +27,9 @@ namespace Triangle.Compiler.SyntaxTrees.Declarations
 
         public TypeDenoter Result { get { return _result; } }
 
-
+        public override TResult Visit<TArg, TResult>(IDeclarationVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitUnaryOperatorDeclaration(this, arg);
+        }
     }
 }

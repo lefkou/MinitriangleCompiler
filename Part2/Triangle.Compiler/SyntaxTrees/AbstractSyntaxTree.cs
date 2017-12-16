@@ -1,5 +1,3 @@
-
-
 namespace Triangle.Compiler.SyntaxTrees
 {
 
@@ -14,6 +12,8 @@ namespace Triangle.Compiler.SyntaxTrees
         }
 
         public SourcePosition Position { get { return _position; } }
+
+
 
         public Location Start { get { return _position.Start; } }
 

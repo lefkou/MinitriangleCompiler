@@ -1,5 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Terminals;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Expressions
 {
@@ -15,7 +15,6 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
                 Expression rightExpression, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _leftExpression = leftExpression;
             _operator = op;
             _rightExpression = rightExpression;
@@ -27,6 +26,9 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
 
         public Expression RightExpression { get { return _rightExpression; } }
 
-
+        public override TResult Visit<TArg, TResult>(IExpressionVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitBinaryExpression(this, arg);
+        }
     }
 }

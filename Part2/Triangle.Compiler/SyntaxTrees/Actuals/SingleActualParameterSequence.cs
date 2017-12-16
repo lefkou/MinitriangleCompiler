@@ -1,4 +1,4 @@
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Actuals
 {
@@ -9,12 +9,14 @@ namespace Triangle.Compiler.SyntaxTrees.Actuals
         public SingleActualParameterSequence(ActualParameter actual, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _actual = actual;
         }
 
         public ActualParameter Actual { get { return _actual; } }
 
-
+        public override TResult Visit<TArg, TResult>(IActualParameterSequenceVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitSingleActualParameterSequence(this, arg);
+        }
     }
 }

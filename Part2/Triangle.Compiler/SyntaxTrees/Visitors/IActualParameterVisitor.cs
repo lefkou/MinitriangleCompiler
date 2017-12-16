@@ -6,9 +6,6 @@ namespace Triangle.Compiler.SyntaxTrees.Visitors
     {
         TResult VisitConstActualParameter(ConstActualParameter ast, TArg arg);
 
-        TResult VisitFuncActualParameter(FuncActualParameter ast, TArg arg);
-
-        TResult VisitProcActualParameter(ProcActualParameter ast, TArg arg);
 
         TResult VisitVarActualParameter(VarActualParameter ast, TArg arg);
     }

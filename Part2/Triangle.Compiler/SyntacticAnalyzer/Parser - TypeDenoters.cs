@@ -21,7 +21,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
          *           a syntactic error
          * 
          */
-        void ParseTypeDenoter()
+        TypeDenoter ParseTypeDenoter()
         {
 
             var startLocation = _currentToken.Start;
@@ -30,16 +30,16 @@ namespace Triangle.Compiler.SyntacticAnalyzer
 
                 case TokenKind.Identifier:
                     {
-                        ParseIdentifier();
+                        var identifier = ParseIdentifier();
                         var typePosition = new SourcePosition(startLocation, _currentToken.Finish);
-                        break;
+                        return new SimpleTypeDenoter(identifier, typePosition);
                     }
 
               
                 default:
                     {
                         RaiseSyntacticError("\"%\" cannot start a type denoter", _currentToken);
-                        break;
+                        return null;
                     }
 
             }

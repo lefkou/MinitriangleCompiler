@@ -1,13 +1,11 @@
 using Triangle.Compiler.SyntaxTrees.Types;
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Expressions
 {
     public abstract class Expression : AbstractSyntaxTree
     {
-        protected Expression(SourcePosition position) : base(position) 
-        {
-        if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
-        }
+        protected Expression(SourcePosition position) : base(position) { }
 
         public TypeDenoter Type { get; set; }
 
@@ -21,6 +19,11 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
             get { throw new System.NotSupportedException(); }
         }
 
+        public abstract TResult Visit<TArg, TResult>(IExpressionVisitor<TArg, TResult> visitor, TArg arg);
 
+        public TResult Visit<TResult>(IExpressionVisitor<Void, TResult> visitor)
+        {
+            return Visit(visitor, null);
+        }
     }
 }

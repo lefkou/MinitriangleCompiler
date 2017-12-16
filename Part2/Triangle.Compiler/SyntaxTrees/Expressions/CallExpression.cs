@@ -1,6 +1,6 @@
 using Triangle.Compiler.SyntaxTrees.Actuals;
 using Triangle.Compiler.SyntaxTrees.Terminals;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Expressions
 {
@@ -14,7 +14,6 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
                 SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _identifier = identifier;
             _actuals = actuals;
         }
@@ -23,6 +22,9 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
 
         public ActualParameterSequence Actuals { get { return _actuals; } }
 
-
+        public override TResult Visit<TArg, TResult>(IExpressionVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitCallExpression(this, arg);
+        }
     }
 }

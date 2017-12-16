@@ -1,5 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Expressions;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Actuals
 {
@@ -10,12 +10,14 @@ namespace Triangle.Compiler.SyntaxTrees.Actuals
         public ConstActualParameter(Expression expression, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _expression = expression;
         }
 
         public Expression Expression { get { return _expression; } }
 
-     
+        public override TResult Visit<TArg, TResult>(IActualParameterVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitConstActualParameter(this, arg);
+        }
     }
 }

@@ -1,4 +1,4 @@
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Commands
 {
@@ -12,7 +12,6 @@ namespace Triangle.Compiler.SyntaxTrees.Commands
                 SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _firstCommand = firstCommand;
             _secondCommand = secondCommand;
         }
@@ -21,6 +20,9 @@ namespace Triangle.Compiler.SyntaxTrees.Commands
 
         public Command SecondCommand { get { return _secondCommand; } }
 
-
+        public override TResult Visit<TArg, TResult>(ICommandVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitSequentialCommand(this, arg);
+        }
     }
 }

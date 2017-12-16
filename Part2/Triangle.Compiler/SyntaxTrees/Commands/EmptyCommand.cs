@@ -1,4 +1,4 @@
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Commands
 {
@@ -6,16 +6,16 @@ namespace Triangle.Compiler.SyntaxTrees.Commands
     {
         public EmptyCommand(SourcePosition position)
             : base(position)
-        {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); } 
-        }
+        { }
 
         public EmptyCommand()
             : this(SourcePosition.Empty)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
         }
 
-
+        public override TResult Visit<TArg, TResult>(ICommandVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitEmptyCommand(this, arg);
+        }
     }
 }

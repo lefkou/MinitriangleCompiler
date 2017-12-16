@@ -1,4 +1,4 @@
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Expressions
 {
@@ -14,7 +14,6 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
             Expression falseExpression, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _testExpression = testExpression;
             _trueExpression = trueExpression;
             _falseExpression = falseExpression;
@@ -26,6 +25,9 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
 
         public Expression FalseExpression { get { return _falseExpression; } }
 
-
+        public override TResult Visit<TArg, TResult>(IExpressionVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitIfExpression(this, arg);
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
         /// <throws type="SyntaxError">
         /// a syntactic error
         /// </throws>
-        void ParseExpression()
+        Expression ParseExpression()
         {
 
             var startLocation = _currentToken.Start;
@@ -32,29 +32,29 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                 case TokenKind.Let:
                     {
                         AcceptIt();
-                        ParseDeclaration();
+                        var declaration = ParseDeclaration();
                         Accept(TokenKind.In);
-                        ParseExpression();
+                        var expression = ParseExpression();
                         var expressionPos = new SourcePosition(startLocation, _currentToken.Finish);
-                        break;
+                        return new LetExpression(declaration, expression, expressionPos);
                     }
 
                 case TokenKind.If:
                     {
                         AcceptIt();
-                        ParseExpression();
+                        var testExpression = ParseExpression();
                         Accept(TokenKind.Then);
-                        ParseExpression();
+                        var trueExpression = ParseExpression();
                         Accept(TokenKind.Else);
-                        ParseExpression();
+                        var falseExpression = ParseExpression();
                         var expressionPos = new SourcePosition(startLocation, _currentToken.Finish);
-                        break;
+                        return new IfExpression(testExpression, trueExpression, falseExpression, expressionPos);
                     }
 
                 default:
                     {
                         ParseSecondaryExpression();
-                        break;
+                        return null;
                     }
             }
         }
@@ -69,18 +69,19 @@ namespace Triangle.Compiler.SyntacticAnalyzer
         /// <throws type="SyntaxError">
         /// a syntactic error
         /// </throws>
-        void ParseSecondaryExpression()
+        Expression ParseSecondaryExpression()
         {
 
             var startLocation = _currentToken.Start;
-            ParsePrimaryExpression();
+            var expression = ParsePrimaryExpression();
             while (_currentToken.Kind == TokenKind.Operator)
             {
-                ParseOperator();
-                ParsePrimaryExpression();
+                var expressionOperator = ParseOperator();
+                var expression2 = ParsePrimaryExpression();
                 var expressionPos = new SourcePosition(startLocation, _currentToken.Finish);
-                break;
+                expression = new BinaryExpression(expression, expressionOperator, expression2, expressionPos);
             }
+            return expression;
 
         }
 
@@ -94,7 +95,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
         /// <throws type="SyntaxError">
         /// a syntactic error
         /// </throws>
-        void ParsePrimaryExpression()
+        Expression ParsePrimaryExpression()
         {
 
             var startlocation = _currentToken.Start;
@@ -103,58 +104,58 @@ namespace Triangle.Compiler.SyntacticAnalyzer
 
                 case TokenKind.IntLiteral:
                     {
-                        ParseIntegerLiteral();
+                        var intLit = ParseIntegerLiteral();
                         var expressionPos = new SourcePosition(startlocation, _currentToken.Finish);
-                        break;
+                        return new IntegerExpression(intLit, expressionPos);
                     }
 
                 case TokenKind.CharLiteral:
                     {
-                        ParseCharacterLiteral();
+                        var charLit = ParseCharacterLiteral();
                         var expressionPos = new SourcePosition(startlocation, _currentToken.Finish);
-                        break;
+                        return new CharacterExpression(charLit, expressionPos);
                     }
 
 
                 case TokenKind.Identifier:
                     {
-                        ParseIdentifier();
+                        var identifier = ParseIdentifier();
                         if (_currentToken.Kind == TokenKind.LeftParen)
                         {
                             AcceptIt();
-                            ParseActualParameterSequence();
+                            var actuals = ParseActualParameterSequence();
                             Accept(TokenKind.RightParen);
                             var expressionPos = new SourcePosition(startlocation, _currentToken.Finish);
-                            break;
+                            return new CallExpression(identifier, actuals, expressionPos);
                         }
                         else
                         {
-                            //ParseRestOfVname(identifier);
+                            var vname = ParseRestOfVname(identifier);
                             var expressionPos = new SourcePosition(startlocation, _currentToken.Finish);
-                            break;
+                            return new VnameExpression(vname, expressionPos);
                         }
                     }
 
                 case TokenKind.Operator:
                     {
-                        ParseOperator();
-                        ParsePrimaryExpression();
+                        var expressionOperator = ParseOperator();
+                        var primaryExpression = ParsePrimaryExpression();
                         var expressionPos = new SourcePosition(startlocation, _currentToken.Finish);
-                        break;
+                        return new UnaryExpression(expressionOperator, primaryExpression, expressionPos);
                     }
 
                 case TokenKind.LeftParen:
                     {
                         AcceptIt();
-                        ParseExpression();
+                        var expression = ParseExpression();
                         Accept(TokenKind.RightParen);
-                        break;
+                        return new EmptyExpression();
                     }
 
                 default:
                     {
                         RaiseSyntacticError("\"%\" cannot start an expression", _currentToken);
-                        break;
+                        return null;
                     }
             }
         }

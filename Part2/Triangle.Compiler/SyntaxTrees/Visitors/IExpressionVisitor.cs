@@ -4,7 +4,6 @@ namespace Triangle.Compiler.SyntaxTrees.Visitors
 {
     public interface IExpressionVisitor<TArg, TResult>
     {
-        TResult VisitArrayExpression(ArrayExpression ast, TArg arg);
 
         TResult VisitBinaryExpression(BinaryExpression ast, TArg arg);
 
@@ -20,7 +19,6 @@ namespace Triangle.Compiler.SyntaxTrees.Visitors
 
         TResult VisitLetExpression(LetExpression ast, TArg arg);
 
-        TResult VisitRecordExpression(RecordExpression ast, TArg arg);
 
         TResult VisitUnaryExpression(UnaryExpression ast, TArg arg);
 

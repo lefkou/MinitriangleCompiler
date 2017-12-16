@@ -1,5 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Declarations;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Expressions
 {
@@ -12,7 +12,6 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
         public LetExpression(Declaration declaration, Expression expression, SourcePosition position)
         : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _declaration = declaration;
             _expression = expression;
         }
@@ -21,6 +20,9 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
 
         public Expression Expression { get { return _expression; } }
         
-
+        public override TResult Visit<TArg, TResult>(IExpressionVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitLetExpression(this, arg);
+        }
     }
 }

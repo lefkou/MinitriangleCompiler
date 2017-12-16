@@ -21,10 +21,18 @@ namespace Triangle.Compiler.SyntacticAnalyzer
          *           a syntactic error
          * 
          */
-        void ParseVname()
+        Vname ParseVname()
         {
-            ParseIdentifier();
-           
+            var identifier = ParseIdentifier();
+            return ParseRestOfVname(identifier);
+            // return new SimpleVname(identifier);
+        }
+
+        Vname ParseRestOfVname(Identifier identifier)
+        {
+            var startLocation = identifier.Start;
+            Vname vname = new SimpleVname(identifier, identifier.Position);
+            return vname;
         }
 
     }

@@ -1,5 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Terminals;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Expressions
 {
@@ -10,7 +10,6 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
         public CharacterExpression(CharacterLiteral characterLiteral, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _characterLiteral = characterLiteral;
         }
 
@@ -26,6 +25,9 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
             get { return _characterLiteral.Value; }
         }
 
-       
+        public override TResult Visit<TArg, TResult>(IExpressionVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitCharacterExpression(this, arg);
+        }
     }
 }

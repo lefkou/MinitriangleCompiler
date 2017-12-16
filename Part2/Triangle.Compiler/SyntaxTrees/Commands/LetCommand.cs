@@ -1,5 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Declarations;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Commands
 {
@@ -12,7 +12,6 @@ namespace Triangle.Compiler.SyntaxTrees.Commands
         public LetCommand(Declaration declaration, Command command, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _declaration = declaration;
             _command = command;
         }
@@ -21,6 +20,9 @@ namespace Triangle.Compiler.SyntaxTrees.Commands
 
         public Command Command { get { return _command; } }
 
-
+        public override TResult Visit<TArg, TResult>(ICommandVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitLetCommand(this, arg);
+        }
     }
 }

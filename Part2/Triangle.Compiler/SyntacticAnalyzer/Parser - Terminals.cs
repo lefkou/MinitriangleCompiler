@@ -20,10 +20,10 @@ namespace Triangle.Compiler.SyntacticAnalyzer
         /// <throws type="SyntaxError">
         /// a syntactic error
         /// </throws>
-        void ParseIntegerLiteral()
+        IntegerLiteral ParseIntegerLiteral()
         {
             Token token = Accept(TokenKind.IntLiteral);
-
+            return new IntegerLiteral(token);
         }
 
         /**
@@ -34,10 +34,10 @@ namespace Triangle.Compiler.SyntacticAnalyzer
          * @throws SyntaxError
          *           a syntactic error
          */
-        void ParseCharacterLiteral()
+        CharacterLiteral ParseCharacterLiteral()
         {
             Token token = Accept(TokenKind.CharLiteral);
-
+            return new CharacterLiteral(token);
         }
 
         /**
@@ -49,10 +49,10 @@ namespace Triangle.Compiler.SyntacticAnalyzer
          *           a syntactic error
          * 
          */
-        void ParseIdentifier()
+        Identifier ParseIdentifier()
         {
             Token token = Accept(TokenKind.Identifier);
-
+            return new Identifier(token);
         }
 
         /**

@@ -1,6 +1,6 @@
 using Triangle.Compiler.SyntaxTrees.Terminals;
 using Triangle.Compiler.SyntaxTrees.Types;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Declarations
 {
@@ -12,7 +12,7 @@ namespace Triangle.Compiler.SyntaxTrees.Declarations
 
         public TypeDeclaration(Identifier identifier, TypeDenoter type, SourcePosition position)
             : base(position)
-        {if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
+        {
             _identifier = identifier;
             _type = type;
         }
@@ -20,7 +20,6 @@ namespace Triangle.Compiler.SyntaxTrees.Declarations
         public TypeDeclaration(Identifier identifier, TypeDenoter type)
             : this(identifier, type, SourcePosition.Empty)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
         }
 
         public Identifier Identifier { get { return _identifier; } }
@@ -31,6 +30,9 @@ namespace Triangle.Compiler.SyntaxTrees.Declarations
             set { _type = value; }
         }
 
-
+        public override TResult Visit<TArg, TResult>(IDeclarationVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitTypeDeclaration(this, arg);
+        }
     }
 }

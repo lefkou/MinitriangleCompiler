@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v1.1.1": {
-      "Triangle.AbstractMachine/1.0.0": {
+      "triangle.abstractmachine/1.0.0": {
         "dependencies": {
           "NuGet.Build.Packaging": "0.1.276"
         },
@@ -14,16 +14,16 @@
           "Triangle.AbstractMachine.dll": {}
         }
       },
-      "NuGet.Build.Packaging/0.1.276": {}
+      "nuget.build.packaging/0.1.276": {}
     }
   },
   "libraries": {
-    "Triangle.AbstractMachine/1.0.0": {
+    "triangle.abstractmachine/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "NuGet.Build.Packaging/0.1.276": {
+    "nuget.build.packaging/0.1.276": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Qtw3sgCpZ/5CQvkDZBbxcdVY7Gq4NhN5OJ9jlMz5LxIRDIUtmUx3LVhU7kY1nLzAgorXI9ujsuOtdtDd+HnzQw==",

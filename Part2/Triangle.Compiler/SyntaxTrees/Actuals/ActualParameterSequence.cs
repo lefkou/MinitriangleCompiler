@@ -1,4 +1,4 @@
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Actuals
 {
@@ -7,9 +7,13 @@ namespace Triangle.Compiler.SyntaxTrees.Actuals
         protected ActualParameterSequence(SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
         }
 
+        public abstract TResult Visit<TArg, TResult>(IActualParameterSequenceVisitor<TArg, TResult> visitor, TArg arg);
 
+        public TResult Visit<TResult>(IActualParameterSequenceVisitor<Void, TResult> visitor)
+        {
+            return Visit(visitor, null);
+        }
     }
 }

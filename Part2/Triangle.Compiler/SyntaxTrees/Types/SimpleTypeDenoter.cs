@@ -1,5 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Terminals;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Types
 {
@@ -10,12 +10,16 @@ namespace Triangle.Compiler.SyntaxTrees.Types
         public SimpleTypeDenoter(Identifier identifier, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _identifier = identifier;
         }
 
         public Identifier Identifier { get { return _identifier; } }
 
+        public override int Size { get { return 0; } }
 
+        public override TResult Visit<TArg, TResult>(ITypeDenoterVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitSimpleTypeDenoter(this, arg);
+        }
     }
 }

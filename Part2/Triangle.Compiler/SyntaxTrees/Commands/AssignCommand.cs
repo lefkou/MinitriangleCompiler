@@ -1,4 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Expressions;
+using Triangle.Compiler.SyntaxTrees.Visitors;
 using Triangle.Compiler.SyntaxTrees.Vnames;
 
 namespace Triangle.Compiler.SyntaxTrees.Commands
@@ -12,7 +13,6 @@ namespace Triangle.Compiler.SyntaxTrees.Commands
         public AssignCommand(Vname vname, Expression expression, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _vname = vname;
             _expression = expression;
         }
@@ -21,5 +21,9 @@ namespace Triangle.Compiler.SyntaxTrees.Commands
 
         public Expression Expression { get { return _expression; } }
 
+        public override TResult Visit<TArg, TResult>(ICommandVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitAssignCommand(this, arg);
+        }
     }
 }

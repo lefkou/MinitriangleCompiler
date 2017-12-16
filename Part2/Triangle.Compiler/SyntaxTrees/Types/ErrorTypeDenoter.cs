@@ -1,4 +1,4 @@
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Types
 {
@@ -6,10 +6,13 @@ namespace Triangle.Compiler.SyntaxTrees.Types
     {
         public ErrorTypeDenoter() : base(SourcePosition.Empty)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
         }
 
+        public override int Size { get { return 0; } }
 
-
+        public override TResult Visit<TArg, TResult>(ITypeDenoterVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitErrorTypeDenoter(this, arg);
+        }
     }
 }

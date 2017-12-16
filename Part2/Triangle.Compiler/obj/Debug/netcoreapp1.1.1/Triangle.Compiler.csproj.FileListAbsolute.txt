@@ -1,0 +1,11 @@
+/src/app/Triangle.Compiler/bin/Debug/netcoreapp1.1.1/Triangle.Compiler.deps.json
+/src/app/Triangle.Compiler/bin/Debug/netcoreapp1.1.1/Triangle.Compiler.runtimeconfig.json
+/src/app/Triangle.Compiler/bin/Debug/netcoreapp1.1.1/Triangle.Compiler.runtimeconfig.dev.json
+/src/app/Triangle.Compiler/obj/Debug/netcoreapp1.1.1/Triangle.Compiler.csproj.CoreCompileInputs.cache
+/src/app/Triangle.Compiler/obj/Debug/netcoreapp1.1.1/Triangle.Compiler.AssemblyInfo.cs
+/src/app/Triangle.Compiler/bin/Debug/netcoreapp1.1.1/Triangle.Compiler.dll
+/src/app/Triangle.Compiler/bin/Debug/netcoreapp1.1.1/Triangle.Compiler.pdb
+/src/app/Triangle.Compiler/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.dll
+/src/app/Triangle.Compiler/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.pdb
+/src/app/Triangle.Compiler/obj/Debug/netcoreapp1.1.1/Triangle.Compiler.dll
+/src/app/Triangle.Compiler/obj/Debug/netcoreapp1.1.1/Triangle.Compiler.pdb

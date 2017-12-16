@@ -1,4 +1,4 @@
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 using Triangle.Compiler.SyntaxTrees.Vnames;
 
 namespace Triangle.Compiler.SyntaxTrees.Expressions
@@ -10,12 +10,14 @@ namespace Triangle.Compiler.SyntaxTrees.Expressions
         public VnameExpression(Vname vname, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _vname = vname;
         }
 
         public Vname Vname { get { return _vname; } }
 
-
+        public override TResult Visit<TArg, TResult>(IExpressionVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitVnameExpression(this, arg);
+        }
     }
 }

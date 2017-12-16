@@ -1,4 +1,4 @@
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Terminals
 {
@@ -9,7 +9,6 @@ namespace Triangle.Compiler.SyntaxTrees.Terminals
         protected Terminal(string spelling, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _spelling = spelling;
         }
 

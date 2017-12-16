@@ -1,5 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Expressions;
-
+using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.SyntaxTrees.Commands
 {
@@ -15,7 +15,6 @@ namespace Triangle.Compiler.SyntaxTrees.Commands
                 Command falseCommand, SourcePosition position)
             : base(position)
         {
-            if (Compiler.debug) { System.Console.WriteLine(this.GetType().Name); }
             _expression = expression;
             _trueCommand = trueCommand;
             _falseCommand = falseCommand;
@@ -27,6 +26,9 @@ namespace Triangle.Compiler.SyntaxTrees.Commands
 
         public Command FalseCommand { get { return _falseCommand; } }
 
-
+        public override TResult Visit<TArg, TResult>(ICommandVisitor<TArg, TResult> visitor, TArg arg)
+        {
+            return visitor.VisitIfCommand(this, arg);
+        }
     }
 }
