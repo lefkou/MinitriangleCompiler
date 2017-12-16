@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v1.1.1",
+    "signature": "d42613c3324ce0c206f97e0b9e57a9ab1ad0e779"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v1.1.1": {
+      "Triangle.AbstractMachine.Interpreter/1.0.0": {
+        "dependencies": {
+          "Triangle.AbstractMachine": "1.0.0"
+        },
+        "runtime": {
+          "Triangle.AbstractMachine.Interpreter.dll": {}
+        }
+      },
+      "NuGet.Build.Packaging/0.1.276": {},
+      "Triangle.AbstractMachine/1.0.0": {
+        "dependencies": {
+          "NuGet.Build.Packaging": "0.1.276"
+        },
+        "runtime": {
+          "Triangle.AbstractMachine.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Triangle.AbstractMachine.Interpreter/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NuGet.Build.Packaging/0.1.276": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Qtw3sgCpZ/5CQvkDZBbxcdVY7Gq4NhN5OJ9jlMz5LxIRDIUtmUx3LVhU7kY1nLzAgorXI9ujsuOtdtDd+HnzQw==",
+      "path": "nuget.build.packaging/0.1.276",
+      "hashPath": "nuget.build.packaging.0.1.276.nupkg.sha512"
+    },
+    "Triangle.AbstractMachine/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

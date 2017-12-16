@@ -1,0 +1,8 @@
+/Users/john/Projects/Triangle.NetCore.Student/Triangle.AbstractMachine/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.deps.json
+/Users/john/Projects/Triangle.NetCore.Student/Triangle.AbstractMachine/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.dll
+/Users/john/Projects/Triangle.NetCore.Student/Triangle.AbstractMachine/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.pdb
+/Users/john/Projects/Triangle.NetCore.Student/Triangle.AbstractMachine/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.csproj.CoreCompileInputs.cache
+/Users/john/Projects/Triangle.NetCore.Student/Triangle.AbstractMachine/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.AssemblyInfoInputs.cache
+/Users/john/Projects/Triangle.NetCore.Student/Triangle.AbstractMachine/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.AssemblyInfo.cs
+/Users/john/Projects/Triangle.NetCore.Student/Triangle.AbstractMachine/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.dll
+/Users/john/Projects/Triangle.NetCore.Student/Triangle.AbstractMachine/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.pdb

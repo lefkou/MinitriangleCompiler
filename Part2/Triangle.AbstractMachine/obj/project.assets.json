@@ -393,7 +393,8 @@
       "NuGet.Build.Packaging/0.1.276": {
         "type": "package",
         "build": {
-          "build/_._": {}
+          "build/NuGet.Build.Packaging.props": {},
+          "build/NuGet.Build.Packaging.targets": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -2269,20 +2270,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
-        }
-      },
-      "Triangle.AbstractMachine/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v1.1.1",
-        "dependencies": {
-          "Microsoft.NETCore.App": "1.1.1",
-          "NuGet.Build.Packaging": "0.1.276"
-        },
-        "compile": {
-          "bin/placeholder/Triangle.AbstractMachine.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Triangle.AbstractMachine.dll": {}
         }
       }
     }
@@ -5501,17 +5488,12 @@
         "system.xml.xpath.xdocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
-    },
-    "Triangle.AbstractMachine/1.0.0": {
-      "type": "project",
-      "path": "../Triangle.AbstractMachine/Triangle.AbstractMachine.csproj",
-      "msbuildProject": "../Triangle.AbstractMachine/Triangle.AbstractMachine.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v1.1.1": [
       "Microsoft.NETCore.App >= 1.1.1",
-      "Triangle.AbstractMachine >= 1.0.0"
+      "NuGet.Build.Packaging >= 0.1.276"
     ]
   },
   "packageFolders": {
@@ -5520,11 +5502,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/src/app/Triangle.Compiler/Triangle.Compiler.csproj",
-      "projectName": "Triangle.Compiler",
-      "projectPath": "/src/app/Triangle.Compiler/Triangle.Compiler.csproj",
+      "projectUniqueName": "/src/app/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj",
+      "projectName": "Triangle.AbstractMachine",
+      "projectPath": "/src/app/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj",
       "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/src/app/Triangle.Compiler/obj/",
+      "outputPath": "/src/app/Triangle.AbstractMachine/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/root/.nuget/NuGet/NuGet.Config"
@@ -5537,11 +5519,7 @@
       },
       "frameworks": {
         "netcoreapp1.1.1": {
-          "projectReferences": {
-            "/src/app/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj": {
-              "projectPath": "/src/app/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       }
     },
@@ -5552,6 +5530,10 @@
             "target": "Package",
             "version": "1.1.1",
             "autoReferenced": true
+          },
+          "NuGet.Build.Packaging": {
+            "target": "Package",
+            "version": "0.1.276"
           }
         }
       }

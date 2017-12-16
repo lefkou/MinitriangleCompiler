@@ -5520,11 +5520,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/src/app/Triangle.Compiler/Triangle.Compiler.csproj",
-      "projectName": "Triangle.Compiler",
-      "projectPath": "/src/app/Triangle.Compiler/Triangle.Compiler.csproj",
+      "projectUniqueName": "/src/app/Triangle.AbstractMachine.Disassembler/Triangle.AbstractMachine.Disassembler.csproj",
+      "projectName": "Triangle.AbstractMachine.Disassembler",
+      "projectPath": "/src/app/Triangle.AbstractMachine.Disassembler/Triangle.AbstractMachine.Disassembler.csproj",
       "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/src/app/Triangle.Compiler/obj/",
+      "outputPath": "/src/app/Triangle.AbstractMachine.Disassembler/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/root/.nuget/NuGet/NuGet.Config"
