@@ -1,6 +1,7 @@
 using Triangle.Compiler.SyntaxTrees.Commands;
 using Triangle.Compiler.SyntaxTrees.Declarations;
 using Triangle.Compiler.SyntaxTrees.Expressions;
+using Triangle.Compiler.SyntaxTrees.Formals;
 using Triangle.Compiler.SyntaxTrees.Terminals;
 using Triangle.Compiler.SyntaxTrees.Types;
 
@@ -153,6 +154,65 @@ namespace Triangle.Compiler
         public static readonly BinaryOperatorDeclaration NotGreaterDecl = DeclareStdBinaryOp("<=",
             IntegerType, IntegerType, BooleanType);
 
+        /**
+         * The procedure declaration for "{@code get(var Char)}".
+         */
+        public static readonly ProcDeclaration GetDecl = DeclareStdProc("get",
+      new SingleFormalParameterSequence(new VarFormalParameter(CharType)));
+
+        /**
+         * The procedure declaration for "{@code put(Char)}".
+         */
+        public static readonly ProcDeclaration PutDecl = DeclareStdProc("put",
+            new SingleFormalParameterSequence(new ConstFormalParameter(CharType)));
+
+        /**
+         * The procedure declaration for "{@code getint(var Integer)}".
+         */
+        public static readonly ProcDeclaration GetintDecl = DeclareStdProc("getint",
+            new SingleFormalParameterSequence(new VarFormalParameter(IntegerType)));
+
+        /**
+         * The procedure declaration for "{@code putint(Integer)}".
+         */
+        public static readonly ProcDeclaration PutintDecl = DeclareStdProc("putint",
+            new SingleFormalParameterSequence(new ConstFormalParameter(IntegerType)));
+
+        /**
+         * The procedure declaration for "{@code geteol()}".
+         */
+        public static readonly ProcDeclaration GeteolDecl = DeclareStdProc("geteol",
+            new EmptyFormalParameterSequence());
+
+        /**
+         * The procedure declaration for "{@code puteol()}".
+         */
+        public static readonly ProcDeclaration PuteolDecl = DeclareStdProc("puteol",
+            new EmptyFormalParameterSequence());
+
+        /**
+         * The function declaration for "{@code chr(Integer) : Char}".
+         */
+        public static readonly FuncDeclaration ChrDecl = DeclareStdFunc("chr",
+            new SingleFormalParameterSequence(new ConstFormalParameter(IntegerType)), CharType);
+
+        /**
+         * The function declaration for "{@code ord(Char) : Integer}".
+         */
+        public static readonly FuncDeclaration OrdDecl = DeclareStdFunc("ord",
+            new SingleFormalParameterSequence(new ConstFormalParameter(CharType)), IntegerType);
+
+        /**
+         * The function declaration for "{@code eol() : Boolean}".
+         */
+        public static readonly FuncDeclaration EolDecl = DeclareStdFunc("eol",
+            new EmptyFormalParameterSequence(), BooleanType);
+
+        /**
+         * The function declaration for "{@code eof() : Boolean}".
+         */
+        public static readonly FuncDeclaration EofDecl = DeclareStdFunc("eof",
+            new EmptyFormalParameterSequence(), BooleanType);
 
         /**
          * Creates a small AST to represent the declaration of a standard type.
@@ -189,9 +249,43 @@ namespace Triangle.Compiler
             return binding;
         }
 
+        /**
+         * Creates a small AST to represent the declaration of a standard procedure.
+         * 
+         * @param id
+         *          the name of the procedure
+         * @param fps
+         *          the formal parameter sequence for the procedure
+         * @return a ProcDeclaration for the given identifier with the given formal
+         *         parameters
+         */
+        static ProcDeclaration DeclareStdProc(string id, FormalParameterSequence fps)
+        {
+            var ident = new Identifier(id);
+            var binding = new ProcDeclaration(ident, fps);
+            return binding;
+        }
 
+        /**
+         * Creates a small AST to represent the declaration of a standard function.
+         * 
+         * @param id
+         *          the name of the function
+         * @param fps
+         *          the formal parameter sequence for the function
+         * @param resultType
+         *          the type of the function result
+         * @return a FuncDeclaration for the given identifier with the given formal
+         *         parameters and returning the given result type
+         */
+        static FuncDeclaration DeclareStdFunc(string id, FormalParameterSequence fps,
+            TypeDenoter resultType)
+        {
 
-       
+            var ident = new Identifier(id);
+            var binding = new FuncDeclaration(ident, fps, resultType);
+            return binding;
+        }
 
         /**
          * Creates a small AST to represent the declaration of a unary operator. This

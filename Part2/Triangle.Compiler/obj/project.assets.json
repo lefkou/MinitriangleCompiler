@@ -5520,11 +5520,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/src/app/Triangle.Compiler/Triangle.Compiler.csproj",
+      "projectUniqueName": "/src/app/Part2/Triangle.Compiler/Triangle.Compiler.csproj",
       "projectName": "Triangle.Compiler",
-      "projectPath": "/src/app/Triangle.Compiler/Triangle.Compiler.csproj",
+      "projectPath": "/src/app/Part2/Triangle.Compiler/Triangle.Compiler.csproj",
       "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/src/app/Triangle.Compiler/obj/",
+      "outputPath": "/src/app/Part2/Triangle.Compiler/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/root/.nuget/NuGet/NuGet.Config"
@@ -5538,8 +5538,8 @@
       "frameworks": {
         "netcoreapp1.1.1": {
           "projectReferences": {
-            "/src/app/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj": {
-              "projectPath": "/src/app/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj"
+            "/src/app/Part2/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj": {
+              "projectPath": "/src/app/Part2/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj"
             }
           }
         }

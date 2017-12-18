@@ -149,7 +149,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                         AcceptIt();
                         var expression = ParseExpression();
                         Accept(TokenKind.RightParen);
-                        return new EmptyExpression();
+                        return expression;
                     }
 
                 default:

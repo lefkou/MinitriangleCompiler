@@ -28,9 +28,9 @@ namespace Triangle.Compiler.SyntacticAnalyzer
             while (_currentToken.Kind == TokenKind.Semicolon)
             {
                 AcceptIt();
-                declaration = ParseSingleDeclaration();
+                var declaration2 = ParseSingleDeclaration();
                 var declarationPosition = new SourcePosition(startLocation, _currentToken.Finish);
-
+                declaration = new SequentialDeclaration(declaration, declaration2, declarationPosition);
             }
             return declaration;
         }

@@ -25,7 +25,6 @@ namespace Triangle.Compiler.SyntacticAnalyzer
         {
             var identifier = ParseIdentifier();
             return ParseRestOfVname(identifier);
-            // return new SimpleVname(identifier);
         }
 
         Vname ParseRestOfVname(Identifier identifier)

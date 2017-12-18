@@ -5502,11 +5502,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/src/app/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj",
+      "projectUniqueName": "/src/app/Part2/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj",
       "projectName": "Triangle.AbstractMachine",
-      "projectPath": "/src/app/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj",
+      "projectPath": "/src/app/Part2/Triangle.AbstractMachine/Triangle.AbstractMachine.csproj",
       "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/src/app/Triangle.AbstractMachine/obj/",
+      "outputPath": "/src/app/Part2/Triangle.AbstractMachine/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/root/.nuget/NuGet/NuGet.Config"

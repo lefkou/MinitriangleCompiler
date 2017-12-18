@@ -1,4 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Declarations;
+using Triangle.Compiler.SyntaxTrees.Types;
 using Triangle.Compiler.SyntaxTrees.Visitors;
 
 namespace Triangle.Compiler.ContextualAnalyzer
@@ -9,18 +10,30 @@ namespace Triangle.Compiler.ContextualAnalyzer
 
         public Void VisitConstDeclaration(ConstDeclaration ast, Void arg)
         {
+            ast.Expression.Visit(this);
+            _idTable.Enter(ast.Identifier, ast);
+            CheckAndReportError(!ast.Duplicated, "identifier \"%\" already declared",
+                ast.Identifier, ast);
             return null;
         }
 
 		public Void VisitVarDeclaration(VarDeclaration ast, Void arg)
 		{
-
-			return null;
+            ast.Type.Visit(this);
+            _idTable.Enter(ast.Identifier, ast);
+            CheckAndReportError(!ast.Duplicated, "identifier \"%\" already declared",
+                ast.Identifier, ast);
+            return null;
 		}
 
         public Void VisitSequentialDeclaration(SequentialDeclaration ast, Void arg)
         {
             
+            ast.FirstDeclaration.Visit(this, null);
+            ast.SecondDeclaration.Visit(this, null);
+			//_idTable.Enter(ast.I, ast);
+            //CheckAndReportError(!ast.Duplicated, "identifier \"%\" already declared",
+                //ast.Identifier, ast);
             return null;
         }
 

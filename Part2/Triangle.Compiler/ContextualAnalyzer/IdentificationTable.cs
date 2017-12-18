@@ -7,6 +7,7 @@ namespace Triangle.Compiler.ContextualAnalyzer
     public sealed class IdentificationTable
     {
 
+        readonly List<Dictionary<string, Declaration>> _levelStack;
 
 
         public IdentificationTable()
