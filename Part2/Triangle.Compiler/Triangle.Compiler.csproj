@@ -40,26 +40,13 @@
     <Compile Remove="SyntaxTrees\Actuals\FuncActualParameter.cs" />
     <Compile Remove="SyntaxTrees\Actuals\ProcActualParameter.cs" />
     <Compile Remove="ContextualAnalyzer\Checker - Aggregates.cs" />
-    <Compile Remove="CodeGenerator\Emitter.cs" />
     <Compile Remove="CodeGenerator\Encoder - Aggregates.cs" />
-    <Compile Remove="CodeGenerator\Encoder - Commands.cs" />
-    <Compile Remove="CodeGenerator\Encoder - Common.cs" />
-    <Compile Remove="CodeGenerator\Encoder - Declarations.cs" />
-    <Compile Remove="CodeGenerator\Encoder - Expressions.cs" />
-    <Compile Remove="CodeGenerator\Encoder - Parameters.cs" />
-    <Compile Remove="CodeGenerator\Encoder - Programs.cs" />
-    <Compile Remove="CodeGenerator\Encoder - Terminals.cs" />
-    <Compile Remove="CodeGenerator\Encoder - TypeDenoters.cs" />
-    <Compile Remove="CodeGenerator\Encoder - Vnames.cs" />
-    <Compile Remove="CodeGenerator\Frame.cs" />
     <Compile Remove="CodeGenerator\Entities\AddressableEntity.cs" />
     <Compile Remove="CodeGenerator\Entities\EqualityRoutine.cs" />
     <Compile Remove="CodeGenerator\Entities\Field.cs" />
     <Compile Remove="CodeGenerator\Entities\IFetchableEntity.cs" />
     <Compile Remove="CodeGenerator\Entities\IRoutineEntity.cs" />
-    <Compile Remove="CodeGenerator\Entities\KnownAddress.cs" />
     <Compile Remove="CodeGenerator\Entities\KnownRoutine.cs" />
-    <Compile Remove="CodeGenerator\Entities\KnownValue.cs" />
     <Compile Remove="CodeGenerator\Entities\ObjectAddress.cs" />
   </ItemGroup>
   <ItemGroup>

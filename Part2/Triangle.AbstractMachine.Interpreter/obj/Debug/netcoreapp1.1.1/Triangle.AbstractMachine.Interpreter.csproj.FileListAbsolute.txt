@@ -10,3 +10,14 @@
 /Users/john/Projects/Triangle.NetCore.Student/Triangle.AbstractMachine.Interpreter/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.AssemblyInfo.cs
 /Users/john/Projects/Triangle.NetCore.Student/Triangle.AbstractMachine.Interpreter/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.dll
 /Users/john/Projects/Triangle.NetCore.Student/Triangle.AbstractMachine.Interpreter/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.pdb
+/src/app/Part2/Triangle.AbstractMachine.Interpreter/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.deps.json
+/src/app/Part2/Triangle.AbstractMachine.Interpreter/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.runtimeconfig.json
+/src/app/Part2/Triangle.AbstractMachine.Interpreter/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.runtimeconfig.dev.json
+/src/app/Part2/Triangle.AbstractMachine.Interpreter/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.dll
+/src/app/Part2/Triangle.AbstractMachine.Interpreter/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.pdb
+/src/app/Part2/Triangle.AbstractMachine.Interpreter/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.dll
+/src/app/Part2/Triangle.AbstractMachine.Interpreter/bin/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.pdb
+/src/app/Part2/Triangle.AbstractMachine.Interpreter/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.csproj.CoreCompileInputs.cache
+/src/app/Part2/Triangle.AbstractMachine.Interpreter/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.AssemblyInfo.cs
+/src/app/Part2/Triangle.AbstractMachine.Interpreter/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.dll
+/src/app/Part2/Triangle.AbstractMachine.Interpreter/obj/Debug/netcoreapp1.1.1/Triangle.AbstractMachine.Interpreter.pdb

@@ -1,0 +1,20 @@
+let
+	var a : Integer;
+	var b : Integer
+in
+begin
+	let
+		var c : Integer;
+		var d : Integer
+	in
+	begin
+		a:=1;
+		b:=2;
+		c:=3;
+		d:=4;
+		putint(a); putint(b); putint(c); putint(d); put(',')
+	end;
+	a:=3;
+	b:=4;
+	putint(a); putint(b)
+end

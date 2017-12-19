@@ -1,3 +1,5 @@
+using System;
+using Triangle.Compiler.CodeGenerator;
 using Triangle.Compiler.ContextualAnalyzer;
 using Triangle.Compiler.SyntacticAnalyzer;
 
@@ -38,7 +40,10 @@ namespace Triangle.Compiler
         /// </summary>
         Checker _checker;
 
-
+        /// <summary>
+        /// The encoder.
+        /// </summary>
+        Encoder _encoder;
 
         /// <summary>
         /// Creates a compiler for the given source file.
@@ -53,7 +58,7 @@ namespace Triangle.Compiler
             _scanner = new Scanner(_source); //.EnableDebugging();
             _parser = new Parser(_scanner, ErrorReporter);
             _checker = new Checker(ErrorReporter);
-            // _encoder = new Encoder(ErrorReporter);
+            _encoder = new Encoder(ErrorReporter);
         }
 
         /// <summary>
@@ -88,12 +93,37 @@ namespace Triangle.Compiler
             }
             // 2nd pass
             ErrorReporter.ReportMessage("Contextual Analysis ...");
-            _checker.Check(program);
+            try {
+                _checker.Check(program);
+            }catch (NullReferenceException)
+            {
+                Console.WriteLine("Syntactic Analysis didn't complete. " +
+                                  "Cannot procceed to contextual analysis.\nExiting now...");
+                Environment.Exit(1);
+            }
+
             if (ErrorReporter.HasErrors) {
                 ErrorReporter.ReportMessage("Compilation was unsuccessful.");
                 return false;
             }
-            
+            // 3rd pass
+            ErrorReporter.ReportMessage("Code Generation ...");
+            try {
+                _encoder.EncodeRun(program);
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Contextual Analysis didn't complete. " +
+                                  "Cannot procceed to code generation.\nExiting now...");
+                Environment.Exit(1);
+            }
+            if (ErrorReporter.HasErrors)
+            {
+                ErrorReporter.ReportMessage("Compilation was unsuccessful.");
+                return false;
+            }
+            // finally save the object code
+            _encoder.SaveObjectProgram(ObjectFileName);
             System.Console.WriteLine(program);
 
             ErrorReporter.ReportMessage("Compilation was successful.");

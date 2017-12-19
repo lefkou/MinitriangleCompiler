@@ -1,16 +1,7 @@
 ﻿<Properties StartupConfiguration="{FCB0186D-7507-4096-8496-3C238677E156}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Triangle.Compiler/SyntacticAnalyzer/Parser - Commands.cs">
     <Files>
-      <File FileName="Triangle.Compiler/ContextualAnalyzer/Checker - Terminals.cs" Line="26" Column="10" />
-      <File FileName="Triangle.Compiler/ContextualAnalyzer/Checker - Common.cs" Line="22" Column="23" />
-      <File FileName="Triangle.Compiler/Compiler.cs" Line="47" Column="37" />
-      <File FileName="Triangle.Compiler/SyntaxTrees/Program.cs" Line="10" Column="31" />
-      <File FileName="Triangle.Compiler/SyntaxTrees/Commands/SequentialCommand.cs" Line="25" Column="28" />
-      <File FileName="Triangle.Compiler/ContextualAnalyzer/Checker - Commands.cs" Line="63" Column="36" />
-      <File FileName="Triangle.Compiler/ContextualAnalyzer/Checker - Parameters.cs" Line="13" Column="9" />
-      <File FileName="Triangle.Compiler/SyntacticAnalyzer/Parser - Parameters.cs" Line="30" Column="40" />
-      <File FileName="Triangle.Compiler/SyntacticAnalyzer/Parser - Commands.cs" Line="63" Column="43" />
-      <File FileName="Triangle.Compiler/SyntacticAnalyzer/Parser - Expressions.cs" Line="126" Column="43" />
+      <File FileName="Triangle.Compiler/SyntacticAnalyzer/Parser - Commands.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

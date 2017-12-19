@@ -1,0 +1,18 @@
+let
+    const	MAX	~	100;
+    var	y:	Integer;
+    var	x:	Integer
+in
+begin
+    y	:=	r;
+    put('?');
+    getint(var	x);
+    if	(x>0)	/\ (x<=MAX)	then
+        while	x	>	0	do	
+            begin
+            x	:=	x-y;
+            putint(x);
+            put(',')
+        end
+    else
+end

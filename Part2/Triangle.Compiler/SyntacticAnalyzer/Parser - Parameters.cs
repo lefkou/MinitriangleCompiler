@@ -110,7 +110,6 @@ namespace Triangle.Compiler.SyntacticAnalyzer
                         var actualPosition = new SourcePosition(startLocation, _currentToken.Position.Finish);
                         return new VarActualParameter(vName, actualPosition);
                     }
-
                 default:
                     {
                         RaiseSyntacticError("\"%\" cannot start an actual parameter", _currentToken);

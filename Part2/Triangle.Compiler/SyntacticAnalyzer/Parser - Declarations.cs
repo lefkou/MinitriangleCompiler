@@ -1,5 +1,5 @@
 using Triangle.Compiler.SyntaxTrees.Declarations;
-
+using System;
 namespace Triangle.Compiler.SyntacticAnalyzer
 {
     public partial class Parser
@@ -50,7 +50,6 @@ namespace Triangle.Compiler.SyntacticAnalyzer
             var startLocation = _currentToken.Start;
             switch (_currentToken.Kind)
             {
-
                 case TokenKind.Const:
                     {
                         AcceptIt();

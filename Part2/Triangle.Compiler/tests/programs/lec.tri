@@ -1,0 +1,11 @@
+let
+        var x : Integer
+in
+begin
+        let
+        const y ~ 365 + x
+        in
+        begin
+        putint(y)
+        end;
+end

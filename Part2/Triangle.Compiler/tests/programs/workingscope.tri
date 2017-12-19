@@ -1,0 +1,14 @@
+let
+	var x : Integer
+in
+begin
+	let
+		var y : Integer
+	in
+	begin
+		y:=2;
+	end;
+	x:=1;
+	putint(x);
+	putint(x)
+end

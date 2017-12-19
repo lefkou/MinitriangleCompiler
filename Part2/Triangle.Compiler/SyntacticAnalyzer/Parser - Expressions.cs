@@ -53,8 +53,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
 
                 default:
                     {
-                        ParseSecondaryExpression();
-                        return null;
+                        return ParseSecondaryExpression();
                     }
             }
         }

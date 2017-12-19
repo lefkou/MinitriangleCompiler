@@ -19,7 +19,7 @@ namespace Triangle.Compiler.ContextualAnalyzer
 
 		public Void VisitVarDeclaration(VarDeclaration ast, Void arg)
 		{
-            ast.Type.Visit(this);
+            ast.Type = ast.Type.Visit(this);
             _idTable.Enter(ast.Identifier, ast);
             CheckAndReportError(!ast.Duplicated, "identifier \"%\" already declared",
                 ast.Identifier, ast);
@@ -29,9 +29,9 @@ namespace Triangle.Compiler.ContextualAnalyzer
         public Void VisitSequentialDeclaration(SequentialDeclaration ast, Void arg)
         {
             
-            ast.FirstDeclaration.Visit(this, null);
-            ast.SecondDeclaration.Visit(this, null);
-			//_idTable.Enter(ast.I, ast);
+            ast.FirstDeclaration.Visit(this);
+            ast.SecondDeclaration.Visit(this);
+            //_idTable.Enter(ast., ast);
             //CheckAndReportError(!ast.Duplicated, "identifier \"%\" already declared",
                 //ast.Identifier, ast);
             return null;

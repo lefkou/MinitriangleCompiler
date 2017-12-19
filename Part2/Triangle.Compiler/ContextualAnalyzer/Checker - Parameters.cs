@@ -15,7 +15,7 @@ namespace Triangle.Compiler.ContextualAnalyzer
 
         public Void VisitConstActualParameter(ConstActualParameter ast, FormalParameter arg)
         {
-            var expressionType = ast.Expression.Visit(this, null);
+            var expressionType = ast.Expression.Visit(this);
             var param = arg as ConstFormalParameter;
             if (param != null)
             {
