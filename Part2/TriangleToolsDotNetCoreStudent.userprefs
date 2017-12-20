@@ -1,7 +1,10 @@
 ﻿<Properties StartupConfiguration="{FCB0186D-7507-4096-8496-3C238677E156}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Triangle.Compiler/SyntacticAnalyzer/Parser - Commands.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Triangle.Compiler/SyntaxTrees/Expressions/CharacterExpression.cs">
     <Files>
-      <File FileName="Triangle.Compiler/SyntacticAnalyzer/Parser - Commands.cs" Line="1" Column="1" />
+      <File FileName="Triangle.Compiler/ContextualAnalyzer/Checker - Expressions.cs" Line="1" Column="1" />
+      <File FileName="Triangle.Compiler/CodeGenerator/Encoder - Expressions.cs" Line="12" Column="14" />
+      <File FileName="Triangle.Compiler/SyntaxTrees/Expressions/IntegerExpression.cs" Line="35" Column="28" />
+      <File FileName="Triangle.Compiler/SyntaxTrees/Expressions/CharacterExpression.cs" Line="30" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

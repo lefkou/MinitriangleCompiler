@@ -1,3 +1,3 @@
 begin
- put('HH'); put('i'); put('!')
+ put('AA'); put('i'); put('.')
 end

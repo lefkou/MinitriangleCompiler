@@ -15,7 +15,7 @@ namespace Triangle.Compiler.CodeGenerator.Entities
         {
             emitter.Emit(OpCode.LOAD, Machine.AddressSize, frame.DisplayRegister(_address), _address.Displacement);
             emitter.Emit(OpCode.STOREI, size, 0, 0); 
-            System.Console.WriteLine("unKnown address assigning");
+            //System.Console.WriteLine("Unknown address assigning");
 
         }
 
@@ -23,14 +23,14 @@ namespace Triangle.Compiler.CodeGenerator.Entities
         {
             emitter.Emit(OpCode.LOAD, Machine.AddressSize, frame.DisplayRegister(_address));
             emitter.Emit(OpCode.LOADA, size);
-            System.Console.WriteLine("unKnown address fetching");
+            //System.Console.WriteLine("unKnown address fetching");
 
         }
 
         public override void EncodeFetchAddress(Emitter emitter, Frame frame, Vname vname)
         {
             emitter.Emit(OpCode.LOAD, Machine.AddressSize, frame.DisplayRegister(_address), _address.Displacement);
-            System.Console.WriteLine("unKnown address fetching address");
+            //System.Console.WriteLine("unKnown address fetching address");
 
         }
 

@@ -25,14 +25,14 @@ namespace Triangle.Compiler.CodeGenerator.Entities
             if (vname.IsIndexed)
             {
                 emitter.Emit(OpCode.LOAD, frame.DisplayRegister(_address), _address.Displacement);
-                System.Console.WriteLine("UnKnown value indexed loading");
+                //System.Console.WriteLine("UnKnown value indexed loading");
 
 
             }
             else
             {
                 emitter.Emit(OpCode.LOAD, size, frame.DisplayRegister(_address), _address.Displacement);
-                System.Console.WriteLine("unKnow value loading");
+                //System.Console.WriteLine("unKnow value loading");
 
             }
         }

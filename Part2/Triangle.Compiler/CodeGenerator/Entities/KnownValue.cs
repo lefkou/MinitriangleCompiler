@@ -17,7 +17,7 @@ namespace Triangle.Compiler.CodeGenerator.Entities
         public void EncodeFetch(Emitter emitter, Frame frame, int size, Vname vname)
         {
             emitter.Emit(OpCode.LOADL, 0, 0, _value);
-            System.Console.WriteLine("Known value loading");
+            //System.Console.WriteLine("Known value loading");
         }
     }
 }
