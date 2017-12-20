@@ -1,8 +1,0 @@
-let
-  var n: Integer;
-  proc inc() ~ n := n + 1
-in
-  begin n:= 0;
-  while n < 5 do
-    inc(); putint(n)
-  end

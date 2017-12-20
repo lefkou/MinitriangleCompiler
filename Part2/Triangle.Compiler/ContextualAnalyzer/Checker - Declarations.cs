@@ -8,6 +8,8 @@ namespace Triangle.Compiler.ContextualAnalyzer
     {
         
 
+        // visit the constdeclaration in the ast and return errors
+        // in case of error
         public Void VisitConstDeclaration(ConstDeclaration ast, Void arg)
         {
             ast.Expression.Visit(this);
@@ -17,6 +19,8 @@ namespace Triangle.Compiler.ContextualAnalyzer
             return null;
         }
 
+        // visit the vardeclaration in the ast and return errors
+        // in case of error
 		public Void VisitVarDeclaration(VarDeclaration ast, Void arg)
 		{
             ast.Type = ast.Type.Visit(this);
@@ -26,17 +30,18 @@ namespace Triangle.Compiler.ContextualAnalyzer
             return null;
 		}
 
+        // visit the sequential declaration in the ast and return errors
+        // in case of error
         public Void VisitSequentialDeclaration(SequentialDeclaration ast, Void arg)
         {
             
             ast.FirstDeclaration.Visit(this);
             ast.SecondDeclaration.Visit(this);
-            //_idTable.Enter(ast., ast);
-            //CheckAndReportError(!ast.Duplicated, "identifier \"%\" already declared",
-                //ast.Identifier, ast);
             return null;
         }
 
+        // visit the type declaration in the ast and return errors
+        // in case of error
 		public Void VisitTypeDeclaration(TypeDeclaration ast, Void arg)
 		{
 			ast.Type = ast.Type.Visit(this);

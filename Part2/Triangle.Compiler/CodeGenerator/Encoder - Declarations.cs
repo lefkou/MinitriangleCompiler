@@ -13,6 +13,9 @@ namespace Triangle.Compiler.CodeGenerator
             return 0;
         }
 
+
+        // visit the ConstDeclaration in the ast and manage the related
+        // entity in the stack
         public int VisitConstDeclaration(ConstDeclaration ast, Frame frame)
         {
             var extraSize = 0;
@@ -31,7 +34,8 @@ namespace Triangle.Compiler.CodeGenerator
         }
 
 
-
+        // visit the SequentialDeclaration in the ast and manage the related
+        // entity in the stack
         public int VisitSequentialDeclaration(SequentialDeclaration ast, Frame frame)
         {
             var extraSize1 = ast.FirstDeclaration.Visit(this, frame);
@@ -39,6 +43,9 @@ namespace Triangle.Compiler.CodeGenerator
             return extraSize1 + extraSize2;
         }
 
+
+        // visit the TypeDeclaration in the ast and manage the related
+        // entity in the stack
         public int VisitTypeDeclaration(TypeDeclaration ast, Frame frame)
         {
             // just to ensure the type's representation is decided

@@ -74,9 +74,9 @@ namespace Triangle.Compiler
         ///
         bool CompileProgram()
         {
-
+            Console.ForegroundColor = ConsoleColor.Blue;
             ErrorReporter.ReportMessage("********** Triangle Compiler (C# Version 3.0) **********");
-
+            Console.ResetColor();
             if (!_source.IsValid)
             {
                 ErrorReporter.ReportMessage("Cannot access source file \"" + _source.Name + "\".");
@@ -97,9 +97,9 @@ namespace Triangle.Compiler
                 _checker.Check(program);
             }catch (NullReferenceException)
             {
-                Console.WriteLine("Syntactic Analysis didn't complete. " +
+                ErrorReporter.ReportMessage("Syntactic Analysis didn't complete. " +
                                   "Cannot procceed to contextual analysis.\nExiting now...");
-                Environment.Exit(1);
+                return false;
             }
 
             if (ErrorReporter.HasErrors) {
@@ -113,9 +113,9 @@ namespace Triangle.Compiler
             }
             catch (NullReferenceException)
             {
-                Console.WriteLine("Contextual Analysis didn't complete. " +
+                ErrorReporter.ReportMessage("Contextual Analysis didn't complete. " +
                                   "Cannot procceed to code generation.\nExiting now...");
-                Environment.Exit(1);
+                return false;
             }
             if (ErrorReporter.HasErrors)
             {
@@ -125,8 +125,9 @@ namespace Triangle.Compiler
             // finally save the object code
             _encoder.SaveObjectProgram(ObjectFileName);
             System.Console.WriteLine(program);
-
+            Console.ForegroundColor = ConsoleColor.Green;
             ErrorReporter.ReportMessage("Compilation was successful.");
+            Console.ResetColor();
             return true;
         }
 

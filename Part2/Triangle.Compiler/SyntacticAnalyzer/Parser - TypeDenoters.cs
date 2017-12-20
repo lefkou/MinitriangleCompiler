@@ -1,3 +1,11 @@
+/*
+    for the type denoters each time an object is 
+    returned based on the AbstractSyntaxTree structure
+    provided
+*/
+
+
+
 using Triangle.Compiler.SyntaxTrees.Types;
 
 namespace Triangle.Compiler.SyntacticAnalyzer
@@ -23,7 +31,8 @@ namespace Triangle.Compiler.SyntacticAnalyzer
          */
         TypeDenoter ParseTypeDenoter()
         {
-
+            // parse the typedenoter and return an appopriate 
+            // object
             var startLocation = _currentToken.Start;
             switch (_currentToken.Kind)
             {

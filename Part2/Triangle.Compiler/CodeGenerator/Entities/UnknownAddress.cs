@@ -22,7 +22,7 @@ namespace Triangle.Compiler.CodeGenerator.Entities
         public override void EncodeFetch(Emitter emitter, Frame frame, int size, Vname vname)
         {
             emitter.Emit(OpCode.LOAD, Machine.AddressSize, frame.DisplayRegister(_address));
-            emitter.Emit(OpCode.LOADA, size);
+            emitter.Emit(OpCode.LOADI, size);
             //System.Console.WriteLine("unKnown address fetching");
 
         }

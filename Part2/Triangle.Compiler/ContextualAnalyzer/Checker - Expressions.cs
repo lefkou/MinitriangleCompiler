@@ -13,7 +13,8 @@ namespace Triangle.Compiler.ContextualAnalyzer
         // Returns the TypeDenoter denoting the type of the expression. Does
         // not use the given object.
 
-
+        // visit the BinaryExpression in the ast and return errors
+        // in case of error
         public TypeDenoter VisitBinaryExpression(BinaryExpression ast, Void arg)
         {
             var e1Type = ast.LeftExpression.Visit(this);
@@ -43,6 +44,9 @@ namespace Triangle.Compiler.ContextualAnalyzer
             return ast.Type = StandardEnvironment.ErrorType;
         }
 
+
+        // visit the call Expression in the ast and return errors
+        // in case of error
         public TypeDenoter VisitCallExpression(CallExpression ast, Void arg)
         {
             var binding = ast.Identifier.Visit(this);
@@ -83,11 +87,15 @@ namespace Triangle.Compiler.ContextualAnalyzer
             return ast.Type = StandardEnvironment.IntegerType;
         }
 
+
+        // visit the let Expression in the ast and return errors
+        // in case of error
         public TypeDenoter VisitLetExpression(LetExpression ast, Void arg)
         {
 
-            _idTable.OpenScope(); ast.Declaration.Visit(this);
+            _idTable.OpenScope(); 
             ast.Declaration.Visit(this);
+            ast.Expression.Visit(this);
             _idTable.CloseScope();
             return ast.Type;
         }

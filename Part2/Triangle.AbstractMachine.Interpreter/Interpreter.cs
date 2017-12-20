@@ -179,7 +179,9 @@ namespace Triangle.AbstractMachine.Interpreter
                     Console.WriteLine("Program is running.");
                     break;
                 case Status.Halted:
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Program has halted normally.");
+                    Console.ResetColor();
                     break;
                 case Status.FailedDatastoreFull:
                     Console.WriteLine("Program has failed due to exhaustion of Data Store.");
@@ -712,8 +714,9 @@ namespace Triangle.AbstractMachine.Interpreter
          */
         public static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("********** TAM Interpreter (.NET CORE) **********");
-
+            Console.ResetColor();
             var objectName = args.Length == 1 ? args[0] : "obj.tam";
             var interpreter = new Interpreter();
             interpreter._codeTop = interpreter.LoadObjectProgram(objectName);

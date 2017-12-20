@@ -1,7 +1,7 @@
 let
 const MAX ~ 100; var y: Integer; var x: Integer
 in begin
-y := 5;
+y := 2;
 put('?');
 getint(var x);
 if (x>0) /\ (x<=MAX) then

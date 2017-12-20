@@ -1,3 +1,10 @@
+/*
+    for the declarations each time an object is 
+    returned based on the AbstractSyntaxTree structure
+    provided
+*/
+
+
 using Triangle.Compiler.SyntaxTrees.Declarations;
 using System;
 namespace Triangle.Compiler.SyntacticAnalyzer
@@ -47,6 +54,8 @@ namespace Triangle.Compiler.SyntacticAnalyzer
          */
         Declaration ParseSingleDeclaration()
         {
+            // return an object based on the declaration 
+            // type
             var startLocation = _currentToken.Start;
             switch (_currentToken.Kind)
             {

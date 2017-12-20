@@ -13,7 +13,6 @@ namespace Triangle.Compiler.CodeGenerator
     {
         
         // Actual Parameters
-
         public int VisitConstActualParameter(ConstActualParameter ast, Frame frame)
         {
             return ast.Expression.Visit(this, frame);

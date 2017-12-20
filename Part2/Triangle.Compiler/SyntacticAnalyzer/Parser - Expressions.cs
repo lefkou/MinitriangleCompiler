@@ -1,3 +1,10 @@
+/*
+    for the expressions each time an object is 
+    returned based on the AbstractSyntaxTree structure
+    provided
+*/
+
+
 
 using Triangle.Compiler.SyntaxTrees.Expressions;
 
@@ -22,7 +29,7 @@ namespace Triangle.Compiler.SyntacticAnalyzer
         /// a syntactic error
         /// </throws>
         Expression ParseExpression()
-        {
+        {   
 
             var startLocation = _currentToken.Start;
 

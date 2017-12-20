@@ -17,7 +17,9 @@ namespace Triangle.Compiler
 
         public void ReportError(string message, string tokenName, SourcePosition pos)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             _output.WriteLine("ERROR: {0} {1}", message.Replace("%", tokenName), pos);
+            Console.ResetColor();
             _errorCount++;
         }
 
@@ -28,7 +30,9 @@ namespace Triangle.Compiler
 
         public void ReportMessage(string message)
         {
+            //Console.ForegroundColor = ConsoleColor.Yellow;
            _output.WriteLine(message);
+            //Console.ResetColor();
         }
 
         public int ErrorCount { get { return _errorCount; } }

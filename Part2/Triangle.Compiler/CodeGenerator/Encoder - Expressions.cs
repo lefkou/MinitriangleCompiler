@@ -8,7 +8,8 @@ namespace Triangle.Compiler.CodeGenerator
     {
 
 
-
+        // visit the character expression in the ast and manage the related
+        // entity in the stack
 		public int VisitCharacterExpression(CharacterExpression ast, Frame frame)
 		{
 			var valSize = ast.Type.Visit(this, null);
@@ -16,6 +17,9 @@ namespace Triangle.Compiler.CodeGenerator
 			return valSize;
 		}
 
+
+        // visit the integer expression in the ast and manage the related
+        // entity in the stack
 		public int VisitIntegerExpression(IntegerExpression ast, Frame frame)
 		{
 			var valSize = ast.Type.Visit(this, null);
@@ -23,7 +27,8 @@ namespace Triangle.Compiler.CodeGenerator
 			return valSize;
 		}
 
-
+        // visit the binary expression in the ast and manage the related
+        // entity in the stack
         public int VisitBinaryExpression(BinaryExpression ast, Frame frame)
         {
             var valSize = ast.Type.Visit(this, null);
@@ -35,6 +40,8 @@ namespace Triangle.Compiler.CodeGenerator
             return valSize;
         }
 
+        // visit the call expression in the ast and manage the related
+        // entity in the stack
         public int VisitCallExpression(CallExpression ast, Frame frame)
         {
             var valSize = ast.Type.Visit(this, null);
@@ -48,6 +55,8 @@ namespace Triangle.Compiler.CodeGenerator
             return 0;
         }
 
+        // visit the if expression in the ast and manage the related
+        // entity in the stack
         public int VisitIfExpression(IfExpression ast, Frame frame)
         {
             ast.Type.Visit(this, null);
@@ -61,7 +70,8 @@ namespace Triangle.Compiler.CodeGenerator
             return valSize;
         }
 
-
+        // visit the let expression in the ast and manage the related
+        // entity in the stack
         public int VisitLetExpression(LetExpression ast, Frame frame)
         {
             ast.Type.Visit(this, null);
@@ -75,7 +85,8 @@ namespace Triangle.Compiler.CodeGenerator
         }
 
        
-
+        // visit the unary expression in the ast and manage the related
+        // entity in the stack
         public int VisitUnaryExpression(UnaryExpression ast, Frame frame)
         {
             var valSize = ast.Type.Visit(this, null);
@@ -84,6 +95,8 @@ namespace Triangle.Compiler.CodeGenerator
             return valSize;
         }
 
+        // visit the vname expression in the ast and manage the related
+        // entity in the stack
         public int VisitVnameExpression(VnameExpression ast, Frame frame)
         {
             var valSize = ast.Type.Visit(this, null);

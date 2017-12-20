@@ -1,3 +1,12 @@
+/*
+    for the literals each time an object is 
+    returned based on the AbstractSyntaxTree structure
+    provided
+*/
+
+
+
+
 using Triangle.Compiler.SyntaxTrees.Terminals;
 
 namespace Triangle.Compiler.SyntacticAnalyzer
