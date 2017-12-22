@@ -1,8 +1,0 @@
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine.Interpreter/bin/Debug/Triangle.AbstractMachine.Interpreter.exe
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine.Interpreter/bin/Debug/Triangle.AbstractMachine.Interpreter.pdb
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine.Interpreter/bin/Debug/Triangle.AbstractMachine.dll
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine.Interpreter/bin/Debug/Triangle.AbstractMachine.pdb
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine.Interpreter/obj/Debug/Triangle.AbstractMachine.Interpreter.csprojResolveAssemblyReference.cache
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine.Interpreter/obj/Debug/Triangle.AbstractMachine.Interpreter.csproj.CoreCompileInputs.cache
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine.Interpreter/obj/Debug/Triangle.AbstractMachine.Interpreter.exe
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine.Interpreter/obj/Debug/Triangle.AbstractMachine.Interpreter.pdb

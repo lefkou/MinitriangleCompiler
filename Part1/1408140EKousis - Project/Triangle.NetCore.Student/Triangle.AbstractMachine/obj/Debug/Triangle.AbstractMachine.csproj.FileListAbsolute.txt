@@ -1,5 +1,0 @@
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine/bin/Debug/Triangle.AbstractMachine.dll
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine/bin/Debug/Triangle.AbstractMachine.pdb
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine/obj/Debug/Triangle.AbstractMachine.csproj.CoreCompileInputs.cache
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine/obj/Debug/Triangle.AbstractMachine.dll
-/Users/john/Projects/Triangle.Net/Triangle.AbstractMachine/obj/Debug/Triangle.AbstractMachine.pdb

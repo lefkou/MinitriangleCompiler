@@ -1,5 +1,0 @@
-/Users/lef/Workspace/languages_compilers/Lab1/Lab1/bin/Debug/Lab1.exe
-/Users/lef/Workspace/languages_compilers/Lab1/Lab1/bin/Debug/Lab1.pdb
-/Users/lef/Workspace/languages_compilers/Lab1/Lab1/obj/x86/Debug/Lab1.csproj.CoreCompileInputs.cache
-/Users/lef/Workspace/languages_compilers/Lab1/Lab1/obj/x86/Debug/Lab1.exe
-/Users/lef/Workspace/languages_compilers/Lab1/Lab1/obj/x86/Debug/Lab1.pdb
