@@ -1,4 +1,4 @@
-#Compiler for Triangle Language in C&#35;
+# Compiler for Triangle Language written in C&#35;
 
 This is a C# version of the Triangle Tools (compiler, disassembler and interpreter) used in the textbook:
 
